@@ -37,13 +37,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tbox_password = new MetroFramework.Controls.MetroTextBox();
+            this.tbox_username = new MetroFramework.Controls.MetroTextBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tbox_username = new MetroFramework.Controls.MetroTextBox();
-            this.tbox_password = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,7 +66,7 @@
             this.showpassword.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
             this.showpassword.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showpassword.Location = new System.Drawing.Point(31, 151);
-            this.showpassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.showpassword.Margin = new System.Windows.Forms.Padding(2);
             this.showpassword.Name = "showpassword";
             this.showpassword.Size = new System.Drawing.Size(113, 23);
             this.showpassword.TabIndex = 4;
@@ -83,7 +81,7 @@
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_login.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.Location = new System.Drawing.Point(73, 221);
-            this.btn_login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_login.Margin = new System.Windows.Forms.Padding(2);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(227, 29);
             this.btn_login.TabIndex = 2;
@@ -96,7 +94,7 @@
             this.Clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear_button.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear_button.Location = new System.Drawing.Point(73, 262);
-            this.Clear_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Clear_button.Margin = new System.Windows.Forms.Padding(2);
             this.Clear_button.Name = "Clear_button";
             this.Clear_button.Size = new System.Drawing.Size(227, 24);
             this.Clear_button.TabIndex = 3;
@@ -113,7 +111,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(32, 44);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(286, 295);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -128,7 +126,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(718, 411);
             this.panel1.TabIndex = 17;
@@ -139,7 +137,7 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 22);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(357, 389);
             this.panel2.TabIndex = 25;
@@ -152,112 +150,16 @@
             this.panel4.Controls.Add(this.tbox_password);
             this.panel4.Controls.Add(this.tbox_username);
             this.panel4.Controls.Add(this.linkLabel2);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.linkLabel1);
             this.panel4.Controls.Add(this.showpassword);
             this.panel4.Controls.Add(this.Clear_button);
             this.panel4.Controls.Add(this.btn_login);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(357, 22);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(361, 389);
             this.panel4.TabIndex = 24;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(224, 152);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(105, 19);
-            this.linkLabel2.TabIndex = 25;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Forgot Password?";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(75, 352);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 19);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Create Account here:";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(204, 352);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(49, 19);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Sign Up";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(718, 22);
-            this.panel3.TabIndex = 23;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(696, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
-            // 
-            // tbox_username
-            // 
-            // 
-            // 
-            // 
-            this.tbox_username.CustomButton.Image = null;
-            this.tbox_username.CustomButton.Location = new System.Drawing.Point(276, 1);
-            this.tbox_username.CustomButton.Name = "";
-            this.tbox_username.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.tbox_username.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbox_username.CustomButton.TabIndex = 1;
-            this.tbox_username.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbox_username.CustomButton.UseSelectable = true;
-            this.tbox_username.CustomButton.Visible = false;
-            this.tbox_username.Lines = new string[0];
-            this.tbox_username.Location = new System.Drawing.Point(31, 81);
-            this.tbox_username.MaxLength = 32767;
-            this.tbox_username.Name = "tbox_username";
-            this.tbox_username.PasswordChar = '\0';
-            this.tbox_username.PromptText = "Username*";
-            this.tbox_username.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbox_username.SelectedText = "";
-            this.tbox_username.SelectionLength = 0;
-            this.tbox_username.SelectionStart = 0;
-            this.tbox_username.ShortcutsEnabled = true;
-            this.tbox_username.Size = new System.Drawing.Size(298, 23);
-            this.tbox_username.TabIndex = 0;
-            this.tbox_username.UseSelectable = true;
-            this.tbox_username.WaterMark = "Username*";
-            this.tbox_username.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbox_username.WaterMarkFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // tbox_password
             // 
@@ -293,6 +195,77 @@
             this.tbox_password.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tbox_password.WaterMarkFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
+            // tbox_username
+            // 
+            // 
+            // 
+            // 
+            this.tbox_username.CustomButton.Image = null;
+            this.tbox_username.CustomButton.Location = new System.Drawing.Point(276, 1);
+            this.tbox_username.CustomButton.Name = "";
+            this.tbox_username.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbox_username.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbox_username.CustomButton.TabIndex = 1;
+            this.tbox_username.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbox_username.CustomButton.UseSelectable = true;
+            this.tbox_username.CustomButton.Visible = false;
+            this.tbox_username.Lines = new string[0];
+            this.tbox_username.Location = new System.Drawing.Point(31, 81);
+            this.tbox_username.MaxLength = 32767;
+            this.tbox_username.Name = "tbox_username";
+            this.tbox_username.PasswordChar = '\0';
+            this.tbox_username.PromptText = "Username*";
+            this.tbox_username.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbox_username.SelectedText = "";
+            this.tbox_username.SelectionLength = 0;
+            this.tbox_username.SelectionStart = 0;
+            this.tbox_username.ShortcutsEnabled = true;
+            this.tbox_username.Size = new System.Drawing.Size(298, 23);
+            this.tbox_username.TabIndex = 0;
+            this.tbox_username.UseSelectable = true;
+            this.tbox_username.WaterMark = "Username*";
+            this.tbox_username.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbox_username.WaterMarkFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Location = new System.Drawing.Point(224, 152);
+            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(105, 19);
+            this.linkLabel2.TabIndex = 25;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Forgot Password?";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(718, 22);
+            this.panel3.TabIndex = 23;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(696, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
+            // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,7 +276,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "   ";
@@ -332,8 +305,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private MetroFramework.Controls.MetroTextBox tbox_password;
         private MetroFramework.Controls.MetroTextBox tbox_username;
     }
