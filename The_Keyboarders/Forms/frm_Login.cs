@@ -24,7 +24,7 @@ namespace The_Keyboarders
         public string _name;
         public string _role;
         public string _lname;
-        public string _mmame;
+        public string _mname;
         public frm_Login()
         {
             con = new MySqlConnection(db.mycon());
@@ -58,10 +58,12 @@ namespace The_Keyboarders
             if(showpassword.Checked) 
             {
                 tbox_password.UseSystemPasswordChar = false;
+                tbox_password.PasswordChar = '\0';
             }
             else
             {
                 tbox_password.UseSystemPasswordChar = true;
+                tbox_password.PasswordChar = '●';
             }
         }
 
