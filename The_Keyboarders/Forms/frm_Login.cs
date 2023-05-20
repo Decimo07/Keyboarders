@@ -23,6 +23,7 @@ namespace The_Keyboarders
         public string _username;
         public string _name;
         public string _role;
+        public string _lname;
         public frm_Login()
         {
             con = new MySqlConnection(db.mycon());
@@ -106,6 +107,7 @@ namespace The_Keyboarders
                     _username = dr["username"].ToString();
                     _name = dr["firstname"].ToString();
                     _role = dr["role"].ToString();
+                    _lname = dr["lastname"].ToString();
                 }
                 else
                 {
@@ -115,9 +117,9 @@ namespace The_Keyboarders
                 con.Close();
                 if(found == true)
                 {
-                    if(_role == "admin")
+                    if(_role == "administator")
                     {
-                        MessageBox.Show("Welcome "+ _name + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("Welcome "+ _name + " "+_lname +"!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
 
 
                         frm_MainDashboard frm = new frm_MainDashboard();
@@ -127,7 +129,7 @@ namespace The_Keyboarders
                     }
                     else
                     {
-                        MessageBox.Show("Welcome " + _name + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("Welcome " + _name + " " + _lname + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
                         frm_MainDashboard frm = new frm_MainDashboard();
                         this.Hide();
                         frm.ShowDialog();
