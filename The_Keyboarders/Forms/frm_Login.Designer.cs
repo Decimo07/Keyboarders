@@ -64,7 +64,7 @@
             // 
             this.showpassword.AutoSize = true;
             this.showpassword.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showpassword.Location = new System.Drawing.Point(93, 161);
+            this.showpassword.Location = new System.Drawing.Point(79, 147);
             this.showpassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.showpassword.Name = "showpassword";
             this.showpassword.Size = new System.Drawing.Size(108, 17);
@@ -103,12 +103,11 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 17);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(357, 389);
+            this.pictureBox1.Size = new System.Drawing.Size(322, 337);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -128,6 +127,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 22);
@@ -139,7 +139,6 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel4.Controls.Add(this.tbox_password);
             this.panel4.Controls.Add(this.tbox_username);
             this.panel4.Controls.Add(this.linkLabel2);
@@ -156,7 +155,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(224, 161);
+            this.linkLabel2.Location = new System.Drawing.Point(224, 147);
             this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(92, 13);
@@ -206,7 +205,7 @@
             this.tbox_username.CustomButton.UseSelectable = true;
             this.tbox_username.CustomButton.Visible = false;
             this.tbox_username.Lines = new string[0];
-            this.tbox_username.Location = new System.Drawing.Point(79, 103);
+            this.tbox_username.Location = new System.Drawing.Point(79, 90);
             this.tbox_username.MaxLength = 32767;
             this.tbox_username.Name = "tbox_username";
             this.tbox_username.PasswordChar = '\0';
@@ -238,7 +237,7 @@
             this.tbox_password.CustomButton.UseSelectable = true;
             this.tbox_password.CustomButton.Visible = false;
             this.tbox_password.Lines = new string[0];
-            this.tbox_password.Location = new System.Drawing.Point(79, 132);
+            this.tbox_password.Location = new System.Drawing.Point(79, 119);
             this.tbox_password.MaxLength = 32767;
             this.tbox_password.Name = "tbox_password";
             this.tbox_password.PasswordChar = '●';
