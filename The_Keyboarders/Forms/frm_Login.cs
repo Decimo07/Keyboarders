@@ -22,7 +22,6 @@ namespace The_Keyboarders
         MySqlDataReader dr;
         public string _username;
         public string _name;
-        public string _lname;
         public string _role;
         public frm_Login()
         {
@@ -57,12 +56,10 @@ namespace The_Keyboarders
             if(showpassword.Checked) 
             {
                 tbox_password.UseSystemPasswordChar = false;
-                tbox_password.PasswordChar = '\0';
             }
             else
             {
                 tbox_password.UseSystemPasswordChar = true;
-                tbox_password.PasswordChar = '●';
             }
         }
 
@@ -108,7 +105,6 @@ namespace The_Keyboarders
                     found = true;
                     _username = dr["username"].ToString();
                     _name = dr["firstname"].ToString();
-                    _lname = dr["lastname"].ToString();
                     _role = dr["role"].ToString();
                 }
                 else
@@ -119,20 +115,20 @@ namespace The_Keyboarders
                 con.Close();
                 if(found == true)
                 {
-                    if(_role == "administrator")
+                    if(_role == "admin")
                     {
-                        MessageBox.Show("Welcome " + _name + _lname + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        
+                        MessageBox.Show("Welcome "+ _name + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
 
-                        frm_MainDashboard frm = new frm_MainDashboard(this);
+
+                        frm_MainDashboard frm = new frm_MainDashboard();
                         this.Hide();
                         frm.ShowDialog();
 
                     }
                     else
                     {
-                        MessageBox.Show("Welcome " + _name +" "+ _lname + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        frm_MainDashboard frm = new frm_MainDashboard(this);
+                        MessageBox.Show("Welcome " + _name + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        frm_MainDashboard frm = new frm_MainDashboard();
                         this.Hide();
                         frm.ShowDialog();
                     }
@@ -191,11 +187,6 @@ namespace The_Keyboarders
             {
                 System.Windows.Forms.Application.Exit();
             }
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -49,14 +49,27 @@ namespace The_Keyboarders
                 if (MessageBox.Show("Are you sure you want to save this record?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     con.Open();
+                    if (empID == txt_schoolID.Text)
+                    {
+                        MessageBox.Show("School Id already exist!", "Message");
+                        con.Close();
+                        return;
+                    }
                     cmd = new MySqlCommand("insert into tbl_student_info(school_id, fullname, address, contact_#) values (@id, @fname, @address, @contact)", con);
-                    
+                    cmd.Parameters.AddWithValue("@id", txt_schoolID.Text);
+                    cmd.Parameters.AddWithValue("@fname", txt_name.Text);
+                    cmd.Parameters.AddWithValue("@address", txt_address.Text);
+                    cmd.Parameters.AddWithValue("@contact", txt_contact.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("User Information succesfully saved!");
 
                     con.Close();
                     frm.LoadUser();
-                   
+                    txt_schoolID.Clear();
+                    txt_name.Clear();
+                    txt_address.Clear();
+                    txt_contact.Clear();
+                    txt_contact.Clear();
                 }
                 else
                 {
