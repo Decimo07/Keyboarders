@@ -54,7 +54,7 @@ namespace The_Keyboarders
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frm_AddBooks frm = new frm_AddBooks(this);
+            frm_AddBooks frm = new frm_AddBooks();
             frm.ShowDialog();
         }
 
@@ -94,7 +94,7 @@ namespace The_Keyboarders
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
-            frm_AddBooks frm = new frm_AddBooks(this);
+            frm_AddBooks frm = new frm_AddBooks();
             frm.ShowDialog();
         }
 

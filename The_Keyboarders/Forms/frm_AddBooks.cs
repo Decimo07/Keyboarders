@@ -24,9 +24,9 @@ namespace The_Keyboarders
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
         frm_BookList booklist;
-        public frm_AddBooks(frm_BookList blist)
+        public frm_AddBooks()
         {
-            booklist = blist;
+          
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
             
@@ -197,19 +197,6 @@ namespace The_Keyboarders
 
         }
 
-        private void txtbox_isbn_TextChanged(object sender, EventArgs e)
-        {
-            QrEncoder encoder= new QrEncoder(ErrorCorrectionLevel.H);
-            QrCode qr;
-            encoder.TryEncode(tboxasseccion.Text, out qr);
-            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
-            using(MemoryStream ms = new MemoryStream())
-            {
-                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
-                QRCODE.Image = new Bitmap(ms);
-            }
-        }
-
         private void label7_Click(object sender, EventArgs e)
         {
 
@@ -234,6 +221,53 @@ namespace The_Keyboarders
         {
             //QRCodeGenerator qr = new QRCodeGenerator();
            // QRCodeData data = qr.CreateQRCode(txt_QRcode.Text, QR);
+        }
+
+        private void tboxcallno_TextChanged(object sender, EventArgs e)
+        {
+            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
+            QrCode qr;
+            encoder.TryEncode("Call No: "+ tboxcallno.Text+ Environment.NewLine  + "Main Title: " + 
+                tboxtitle.Text + Environment.NewLine + "Author: " +tboxauthor.Text, out qr);
+            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
+                QRCODE.Image = new Bitmap(ms);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tboxtitle_TextChanged(object sender, EventArgs e)
+        {
+            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
+            QrCode qr;
+            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
+                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text, out qr);
+            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
+                QRCODE.Image = new Bitmap(ms);
+            }
+        }
+
+        private void tboxauthor_TextChanged(object sender, EventArgs e)
+        {
+            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
+            QrCode qr;
+            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
+                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text, out qr);
+            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
+                QRCODE.Image = new Bitmap(ms);
+            }
         }
     }
 }

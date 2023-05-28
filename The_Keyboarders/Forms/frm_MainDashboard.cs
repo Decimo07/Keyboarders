@@ -17,16 +17,21 @@ namespace The_Keyboarders
         MySqlCommand cmd = new MySqlCommand();
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
-        int NoOfBooks;
-        public static frm_MainDashboard instance;
         public Form activeFrm;
         DateTime datenow;
-        frm_Student_Faculty student;
-        public frm_MainDashboard()
+        frm_Login login;
+        public frm_MainDashboard(frm_Login frm)
         {
+            login = frm;
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
-            instance = this; 
+            LoadUser();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
+        public void LoadUser()
+        {
+            lblUser.Text = login._name +" "+  login._mname +" "+ login._lname;
+            lblRole.Text = login._role;
         }
         public void Openform(Form Children)
         {
@@ -121,20 +126,7 @@ namespace The_Keyboarders
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void bttn_user_Click(object sender, EventArgs e)
-        {
-            Openform(new frm_addstudent(student));
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void bttn_user_Click_1(object sender, EventArgs e)
         {
@@ -181,6 +173,11 @@ namespace The_Keyboarders
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SidePanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

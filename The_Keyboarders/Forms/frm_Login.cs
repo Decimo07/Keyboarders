@@ -31,27 +31,12 @@ namespace The_Keyboarders
             InitializeComponent();
             instance = this;
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Librarian_LogIn_Load(object sender, EventArgs e)
-
-        {
-            
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -67,31 +52,6 @@ namespace The_Keyboarders
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Clear_button_Click(object sender, EventArgs e)
-        {
-            tbox_username.Text = "";
-            tbox_password.Text = "";
-        }
-
-        private void exit_button_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
@@ -125,7 +85,7 @@ namespace The_Keyboarders
                         MessageBox.Show("Welcome "+ _name + " "+_lname +"!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
 
 
-                        frm_MainDashboard frm = new frm_MainDashboard();
+                        frm_MainDashboard frm = new frm_MainDashboard(this);
                         this.Hide();
                         frm.ShowDialog();
 
@@ -133,7 +93,7 @@ namespace The_Keyboarders
                     else
                     {
                         MessageBox.Show("Welcome " + _name + " " + _lname + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        frm_MainDashboard frm = new frm_MainDashboard();
+                        frm_MainDashboard frm = new frm_MainDashboard(this);
                         this.Hide();
                         frm.ShowDialog();
                     }
@@ -155,43 +115,18 @@ namespace The_Keyboarders
            
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bttn_NewAcc_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bttn_NewAcc_Click_1(object sender, EventArgs e)
-        {
-            frm_manageAccount fma = new frm_manageAccount();
-            fma.Show();
-        }
-
         private void pictureBox2_Click_1(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are you sure you want to exit?","Message",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
             {
                 System.Windows.Forms.Application.Exit();
             }
+        }
+
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
