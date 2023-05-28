@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using The_Keyboarders.Class;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.InteropServices;
 
 namespace The_Keyboarders
 {
@@ -26,7 +27,10 @@ namespace The_Keyboarders
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
         }
-        //loadbook
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         public void LoadBook()
         {
             int i = 0;
@@ -52,50 +56,9 @@ namespace The_Keyboarders
             LoadBook();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frm_AddBooks frm = new frm_AddBooks();
-            frm.ShowDialog();
-        }
-
-        private void tbox_search_TextChanged(object sender, EventArgs e)
-        {
-            LoadBook();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();   
-        }
-
-        private void cbox_filter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void bttn_close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-            frm_AddBooks frm = new frm_AddBooks();
-            frm.ShowDialog();
         }
 
         private void booksGridView_SelectionChanged(object sender, EventArgs e)
@@ -127,30 +90,21 @@ namespace The_Keyboarders
             }
         }
 
-        byte[] ObjectToByteArray(object obj)
-        {
-            if (obj == null)
-                return null;
-            BinaryFormatter bf = new BinaryFormatter();
-            using (MemoryStream ms = new MemoryStream())
-            {
-                bf.Serialize(ms, obj);
-                return ms.ToArray();
-            }
-        }
-
-        public Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            System.Drawing.ImageConverter converter = new System.Drawing.ImageConverter();
-            Image img = (Image)converter.ConvertFrom(byteArrayIn);
-
-            return img;
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
             dash.CountBooks();
+        }
+
+        private void toppanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void metroTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            LoadBook();
         }
     }
 }

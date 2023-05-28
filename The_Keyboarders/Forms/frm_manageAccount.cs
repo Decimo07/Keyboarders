@@ -18,7 +18,6 @@ namespace The_Keyboarders
         MySqlConnection con = new MySqlConnection();
         MySqlCommand cmd = new MySqlCommand();
         dbconnection db = new dbconnection();
-        MySqlDataReader dr;
         public frm_manageAccount()
         {
             con = new MySqlConnection(db.mycon());

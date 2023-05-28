@@ -37,8 +37,8 @@
             this.tbox_username = new MetroFramework.Controls.MetroTextBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,6 +89,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.tbox_password);
             this.panel4.Controls.Add(this.tbox_username);
             this.panel4.Controls.Add(this.linkLabel2);
@@ -121,7 +122,6 @@
             this.tbox_password.MaxLength = 32767;
             this.tbox_password.Name = "tbox_password";
             this.tbox_password.PasswordChar = '●';
-            this.tbox_password.PromptText = "Password*";
             this.tbox_password.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tbox_password.SelectedText = "";
             this.tbox_password.SelectionLength = 0;
@@ -155,7 +155,6 @@
             this.tbox_username.MaxLength = 32767;
             this.tbox_username.Name = "tbox_username";
             this.tbox_username.PasswordChar = '\0';
-            this.tbox_username.PromptText = "Username*";
             this.tbox_username.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tbox_username.SelectedText = "";
             this.tbox_username.SelectionLength = 0;
@@ -194,6 +193,17 @@
             this.panel3.TabIndex = 23;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 25);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "CLCMS Library System";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -208,17 +218,6 @@
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 25);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "CLCMS Library System";
             // 
             // frm_Login
             // 

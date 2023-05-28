@@ -12,6 +12,7 @@ using Gma.QrCodeNet.Encoding;
 using Gma.QrCodeNet.Encoding.Windows.Render;
 using System.IO;
 using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 
 namespace The_Keyboarders
 {
@@ -23,7 +24,6 @@ namespace The_Keyboarders
         MySqlCommand cmd = new MySqlCommand();
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
-        frm_BookList booklist;
         public frm_AddBooks()
         {
           
@@ -31,11 +31,10 @@ namespace The_Keyboarders
             InitializeComponent();
             
         }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //populate category from tbl_category
         public void LoadCategory()
         {
@@ -51,16 +50,6 @@ namespace The_Keyboarders
             con.Close();   
         }
 
-    
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textb_TextChanged(object sender, EventArgs e)
-        {
-        }
 
         private void bttn_save_Click(object sender, EventArgs e)
         {
@@ -123,7 +112,6 @@ namespace The_Keyboarders
                     tboxseries.Clear();
                     tboxprice.Clear();
                     tboxpublisher.Clear();
-                    booklist.LoadBook();
                 }
                 else
                 {
@@ -141,24 +129,11 @@ namespace The_Keyboarders
             }
         }
 
-        private void txtbox_BookQuantity_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bttn_cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+     
 
         private void cbox_category_SelectedIndexChanged(object sender, EventArgs e)
         {
            
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void frm_AddBooks_Load(object sender, EventArgs e)
@@ -166,31 +141,8 @@ namespace The_Keyboarders
             LoadCategory();
         }
 
-        private void tbox_search_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void cbox_filter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void bttn_newCategory_Click(object sender, EventArgs e)
-        {
-            Category cty = new Category();
-            cty.Show();
-        }
-
-        private void panel_middle_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+     
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -202,33 +154,13 @@ namespace The_Keyboarders
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pcbox_QR_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_generate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bttn_generate_Click(object sender, EventArgs e)
-        {
-            //QRCodeGenerator qr = new QRCodeGenerator();
-           // QRCodeData data = qr.CreateQRCode(txt_QRcode.Text, QR);
-        }
-
         private void tboxcallno_TextChanged(object sender, EventArgs e)
         {
             QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
             QrCode qr;
-            encoder.TryEncode("Call No: "+ tboxcallno.Text+ Environment.NewLine  + "Main Title: " + 
-                tboxtitle.Text + Environment.NewLine + "Author: " +tboxauthor.Text, out qr);
+            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
+                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
+                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
             GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
             using (MemoryStream ms = new MemoryStream())
             {
@@ -247,7 +179,8 @@ namespace The_Keyboarders
             QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
             QrCode qr;
             encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
-                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text, out qr);
+                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
+                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
             GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
             using (MemoryStream ms = new MemoryStream())
             {
@@ -261,13 +194,55 @@ namespace The_Keyboarders
             QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
             QrCode qr;
             encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
-                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text, out qr);
+                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
+                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
             GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
             using (MemoryStream ms = new MemoryStream())
             {
                 renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
                 QRCODE.Image = new Bitmap(ms);
             }
+        }
+
+        private void tboxYpub_TextChanged(object sender, EventArgs e)
+        {
+            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
+            QrCode qr;
+            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
+                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
+                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
+            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
+                QRCODE.Image = new Bitmap(ms);
+            }
+        }
+
+        private void tboxISBN_TextChanged(object sender, EventArgs e)
+        {
+            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
+            QrCode qr;
+            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
+                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
+                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
+            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
+                QRCODE.Image = new Bitmap(ms);
+            } 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

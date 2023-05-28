@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using The_Keyboarders.Class;
-using System.Data.SqlClient;
-using The_Keyboarders.Class;
 
 namespace The_Keyboarders
 {

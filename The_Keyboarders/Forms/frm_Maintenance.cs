@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using The_Keyboarders.Class;
-using The_Keyboarders.Class;
 
 
 namespace The_Keyboarders
@@ -20,6 +19,7 @@ namespace The_Keyboarders
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
         public string _category;
+        bool found = false;
         public frm_Maintenance()
         {
             con = new MySqlConnection(db.mycon());
@@ -35,7 +35,7 @@ namespace The_Keyboarders
                 {
                     
                     con.Open();
-                    bool found = false;
+                    
                     cmd = new MySqlCommand("select * from tblcategory", con);
                     dr = cmd.ExecuteReader();
                     dr.Read();
