@@ -73,7 +73,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblfaculty = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.lblIssued = new System.Windows.Forms.Label();
@@ -500,6 +500,7 @@
             this.btnBorrowers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBorrowers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBorrowers.UseVisualStyleBackColor = true;
+            this.btnBorrowers.Click += new System.EventHandler(this.btnBorrowers_Click);
             // 
             // SidePanel
             // 
@@ -512,6 +513,7 @@
             // 
             // MainPanel
             // 
+            this.MainPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.MainPanel.Controls.Add(this.panel11);
             this.MainPanel.Controls.Add(this.panel10);
             this.MainPanel.Controls.Add(this.panel6);
@@ -728,7 +730,7 @@
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.BackColor = System.Drawing.Color.Yellow;
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.lblfaculty);
             this.panel4.Location = new System.Drawing.Point(761, 106);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
@@ -745,15 +747,15 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "FACULTY";
             // 
-            // label6
+            // lblfaculty
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 27);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "0";
+            this.lblfaculty.AutoSize = true;
+            this.lblfaculty.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfaculty.Location = new System.Drawing.Point(9, 11);
+            this.lblfaculty.Name = "lblfaculty";
+            this.lblfaculty.Size = new System.Drawing.Size(24, 27);
+            this.lblfaculty.TabIndex = 0;
+            this.lblfaculty.Text = "0";
             // 
             // panel9
             // 
@@ -946,7 +948,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblfaculty;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblIssued;
@@ -959,13 +961,13 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnRecords;
         private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Button btnBorrowers;
         private System.Windows.Forms.Button btnUserAccount;
+        public System.Windows.Forms.Label lblUser;
     }
 }
 

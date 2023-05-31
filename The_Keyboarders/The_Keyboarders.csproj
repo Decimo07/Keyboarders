@@ -173,6 +173,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alertbox\frm_Alertbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertbox\frm_Alertbox.Designer.cs">
+      <DependentUpon>frm_Alertbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Alerts.cs" />
+    <Compile Include="Class\EllipseControlArtan.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\Category.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +190,12 @@
       <DependentUpon>Category.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\dbconnection.cs" />
+    <Compile Include="Forms\frm_Books.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Books.Designer.cs">
+      <DependentUpon>frm_Books.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frm_MainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,11 +208,11 @@
     <Compile Include="Forms\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_addstudent.cs">
+    <Compile Include="Forms\frm_addborrower.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_addstudent.Designer.cs">
-      <DependentUpon>frm_addstudent.cs</DependentUpon>
+    <Compile Include="Forms\frm_addborrower.Designer.cs">
+      <DependentUpon>frm_addborrower.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frm_manageAccount.cs">
       <SubType>Form</SubType>
@@ -210,17 +226,17 @@
     <Compile Include="Forms\frm_AddBooks.Designer.cs">
       <DependentUpon>frm_AddBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_BookList.cs">
+    <Compile Include="Forms\frm_BookAcquired.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_BookList.Designer.cs">
-      <DependentUpon>frm_BookList.cs</DependentUpon>
+    <Compile Include="Forms\frm_BookAcquired.Designer.cs">
+      <DependentUpon>frm_BookAcquired.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_Student_Faculty.cs">
+    <Compile Include="Forms\frm_borrower.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_Student_Faculty.Designer.cs">
-      <DependentUpon>frm_Student_Faculty.cs</DependentUpon>
+    <Compile Include="Forms\frm_borrower.Designer.cs">
+      <DependentUpon>frm_borrower.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frm_about.cs">
       <SubType>Form</SubType>
@@ -246,6 +262,12 @@
     <Compile Include="Forms\frm_addLibrarianstaff.Designer.cs">
       <DependentUpon>frm_addLibrarianstaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_verifyPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_verifyPassword.Designer.cs">
+      <DependentUpon>frm_verifyPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frm_Verify_User_Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,11 +276,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Alertbox\frm_Alertbox.resx">
+      <DependentUpon>frm_Alertbox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_addstudent.resx">
-      <DependentUpon>frm_addstudent.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frm_addborrower.resx">
+      <DependentUpon>frm_addborrower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Books.resx">
+      <DependentUpon>frm_Books.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_MainDashboard.resx">
       <DependentUpon>frm_MainDashboard.cs</DependentUpon>
@@ -275,11 +303,11 @@
     <EmbeddedResource Include="Forms\frm_AddBooks.resx">
       <DependentUpon>frm_AddBooks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_BookList.resx">
-      <DependentUpon>frm_BookList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frm_BookAcquired.resx">
+      <DependentUpon>frm_BookAcquired.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_Student_Faculty.resx">
-      <DependentUpon>frm_Student_Faculty.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frm_borrower.resx">
+      <DependentUpon>frm_borrower.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_about.resx">
       <DependentUpon>frm_about.cs</DependentUpon>
@@ -289,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_addLibrarianstaff.resx">
       <DependentUpon>frm_addLibrarianstaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_verifyPassword.resx">
+      <DependentUpon>frm_verifyPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Verify_User_Details.resx">
       <DependentUpon>frm_Verify_User_Details.cs</DependentUpon>
@@ -328,6 +359,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

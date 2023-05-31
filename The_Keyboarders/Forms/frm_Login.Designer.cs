@@ -39,6 +39,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -63,7 +64,10 @@
             // 
             // btn_login
             // 
-            this.btn_login.FlatAppearance.BorderSize = 0;
+            this.btn_login.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_login.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.Location = new System.Drawing.Point(452, 22);
             this.btn_login.Margin = new System.Windows.Forms.Padding(2);
@@ -71,7 +75,6 @@
             this.btn_login.Size = new System.Drawing.Size(110, 23);
             this.btn_login.TabIndex = 4;
             this.btn_login.Text = "Login";
-            this.btn_login.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
@@ -122,6 +125,7 @@
             this.tbox_password.MaxLength = 32767;
             this.tbox_password.Name = "tbox_password";
             this.tbox_password.PasswordChar = '●';
+            this.tbox_password.PromptText = "Password*";
             this.tbox_password.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tbox_password.SelectedText = "";
             this.tbox_password.SelectionLength = 0;
@@ -134,6 +138,7 @@
             this.tbox_password.WaterMark = "Password*";
             this.tbox_password.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tbox_password.WaterMarkFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbox_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbox_password_KeyDown);
             // 
             // tbox_username
             // 
@@ -155,6 +160,7 @@
             this.tbox_username.MaxLength = 32767;
             this.tbox_username.Name = "tbox_username";
             this.tbox_username.PasswordChar = '\0';
+            this.tbox_username.PromptText = "Username*";
             this.tbox_username.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tbox_username.SelectedText = "";
             this.tbox_username.SelectionLength = 0;
@@ -219,6 +225,11 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
             // 
+            // ellipseControlArtan1
+            // 
+            this.ellipseControlArtan1.CornerRadius = 20;
+            this.ellipseControlArtan1.TargetControl = this;
+            // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,5 +264,6 @@
         private MetroFramework.Controls.MetroTextBox tbox_password;
         private MetroFramework.Controls.MetroTextBox tbox_username;
         private System.Windows.Forms.Label label1;
+        private Class.EllipseControlArtan ellipseControlArtan1;
     }
 }

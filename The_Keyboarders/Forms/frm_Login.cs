@@ -25,11 +25,13 @@ namespace The_Keyboarders
         public string _role;
         public string _lname;
         public string _mname;
+        bool isSent;
         public frm_Login()
         {
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
             instance = this;
+            tbox_username.Focus();
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -58,6 +60,7 @@ namespace The_Keyboarders
             try
             {
                 bool found = false;
+                
                 con.Open();
                 cmd = new MySqlCommand("select * from tbluser where username = @usern and password = @pass", con);
                 cmd.Parameters.AddWithValue("@pass", tbox_password.Text);
@@ -82,27 +85,30 @@ namespace The_Keyboarders
                 {
                     if(_role == "administator")
                     {
-                        MessageBox.Show("Welcome "+ _name + " "+_lname +"!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-
-                        frm_MainDashboard frm = new frm_MainDashboard(this);
-                        this.Hide();
-                        frm.ShowDialog();
-
+                        AlertBoxs(Color.White, Color.SeaGreen, "Login Successfully", "Welcome " + _name + " " + _lname + "!", Properties.Resources.check);
+                        if (isSent)
+                        {
+                            frm_MainDashboard frm = new frm_MainDashboard(this);
+                            this.Hide();
+                            frm.ShowDialog();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Welcome " + _name + " " + _lname + "!", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        frm_MainDashboard frm = new frm_MainDashboard(this);
-                        this.Hide();
-                        frm.ShowDialog();
+                        AlertBoxs(Color.White, Color.SeaGreen, "Login Successfully", "Welcome " + _name + " " + _lname + "!", Properties.Resources.check);
+                        if (isSent)
+                        {
+                            frm_MainDashboard frm = new frm_MainDashboard(this);
+                            this.Hide();
+                            frm.ShowDialog();
+                        }
                     }
 
 
                 }
                 else
                 {
-                    MessageBox.Show("Username or Password is incorrect! ", "Login Unsuccessfully", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    AlertBoxs(Color.White, Color.DarkRed, "Login Unsuccessfully", "Username or Password is incorrect!", Properties.Resources.cross);
                     tbox_username.Clear();
                     tbox_password.Clear();
                     tbox_username.Focus();
@@ -114,7 +120,17 @@ namespace The_Keyboarders
             }
            
         }
-
+        void AlertBoxs(Color backColor, Color color, string title, string text, Image icon)
+        {
+            Alertbox.frm_Alertbox frm = new Alertbox.frm_Alertbox();
+            frm.BackColor = backColor;
+            frm.ColorAlertBox = color;
+            frm.TitleAlertBox = title;
+            frm.TextAlertBox = text;
+            frm.IconeAlertBox = icon;
+            frm.ShowDialog();
+            isSent = true;
+        }
         private void pictureBox2_Click_1(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are you sure you want to exit?","Message",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
@@ -127,6 +143,14 @@ namespace The_Keyboarders
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void tbox_password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btn_login_Click(sender, e);
+            }
         }
     }
 }

@@ -117,7 +117,96 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="ellipseControlArtan1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="book_id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="accessionNum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Call_No.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="title.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="yearpub.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="isbn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="subject.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="publisher.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="qty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="qr_code.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="book_image.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="view.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="view.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAHYAAAB2AU57JggAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAAcklEQVQ4T2OgBtAH4nIyMUgvQyMQM4IYJAKQniYQowFEkAnAekcNGAwGzAVibImEGAzSC04MuBKS
+        KRCbQJgYAJ6QQMmxDYg70PARHGwYBunRA2IMoAHEIAWzgBjmVBAbJAaSIwgkgBjZJmQMkqMmYGAAAMdL
+        JzRjcoN+AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAHEAAABxARw/gHcAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAA8ElEQVQ4T63Tvw4BQRDH8SOCewCFN9ColHoaDyDRiEqi0WhEodQIKpWEQqWXaCQ0VOgVOq+xvpOM
+        ZO3d+ZOY5JPszu78crnDM8b8hKphhxkyz2YedUvJHdR7bVzho4wlvD4WaFoqEcMrjDFCHAd4J/eyi3oO
+        J3QvAWd0ZHNxB2zUy7D2JGCk6+gA6u2w7sMDqI/D2gsGUC18HNb+awAVww1rpLUXOqxngYAC5LM2ICET
+        hA4LKTegiymGuGNgn1v3esjKwg2QlyePLL803z6zUXPkZBF4id/4a8AWmbBLUagk5B+Zkk0RGxx/sEfV
+        GOM9APTP589hb/BuAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAHYAAAB2AU57JggAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABG0lEQVQ4T5XTvS4EURiH8RO1j1VvolBoKDah021otEslCtyCKESiUopoqEUU3MA2ewkSITQSDS3R
+        EdV6npk5splZZ9c/+SXvZud8vXMmkA28o5vwjXOMoBIHz+flnxnDHZrZr1JcwSxhrWBdzjX8r5I4wSl8
+        SNblDJxgUP61g15XmCnqVVTSrwe9WhhFA5OoZJgj1LGPSxxjEb+JEzzBOjqEWcEHzrCNA7ziBFlSO3Bl
+        B8cVd1Er3GMTyQnctivHPGA2L8Mybi1SE1zAbe/gBp94RBsT+EJ2lRcs+sSGeWa773V/hm9mGnN4QVjH
+        G2Lzoj14dhvmmU0HU3mZfVxHeZmO3bZh3pNx2AMH2w+PMVS2YMP8rN22KzM4hB+TKVBlr8B6AAAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="tbox_search.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBR0EGw7kgc/pAAABUUlEQVQ4T5WSPUvDYBSF/ZzcdFRH
+        EV110L0/SxHqqLsutYqDkKGbXbQGHDpIIF+tEQQVRHDXDlIlPrc50pbGoA8c3t5z7z15STo2SBRFJVRD
+        L+gTPYVheMK5ppF8PM+bZrCKUoY7nHV0hBroQ2FljY9Cs2LL6DhJkjnZPeI4XsS3QAvfkt0Hs/SzLGsE
+        13Wn6F8y2/V9f0l2BmaN5nu73Z6VlUur1VrRg/ZkZWC8onOVhTCXoKbKDAx7SRWVhTDnMn+rMgPjGV2o
+        LIS5BwtRmYFxqlssyMqF/gZz9g52ZGXwmdYxv1Dd3rbsIejNEOBzvgVBMC+7D41dZOkNPtOq7B48YFPL
+        9j+4StN0Qq1hSN5moKugO3676FGLHVtWr/prCEPLaJ+hJrpH19Rlu7Yt2TIqDimCpXECDyyE88xxnEm1
+        /s7gTQg5lP0/LMRuEkXRzTfjAFD7q9sfXAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -130,7 +219,4 @@
         wHhOpbzBkKDPaBWqnQl+h5ybfGK/pKmRTDffcoYAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="ellipseControlArtan1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

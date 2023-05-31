@@ -16,6 +16,7 @@ namespace The_Keyboarders
         MySqlConnection con = new MySqlConnection();
         MySqlCommand cmd = new MySqlCommand();
         dbconnection db = new dbconnection();
+        public string uname;
         DateTime datenow;
         frm_Login login;
         public frm_MainDashboard(frm_Login frm)
@@ -28,11 +29,13 @@ namespace The_Keyboarders
             CountIssuedBooks();
             CountOverdue();
             CountStudent();
+            CountFaculty();
             LoadUser();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         public void LoadUser()
         {
+            uname = login._username;
             lblUser.Text = login._name +" "+  login._mname +" "+ login._lname;
             lblRole.Text = login._role;
         }
@@ -69,15 +72,22 @@ namespace The_Keyboarders
         public void CountStudent()
         {
             con.Open();
-            cmd = new MySqlCommand("select count(*) from tblStudent", con);
+            cmd = new MySqlCommand("select count(*) from tblborrowers where type = 'Student'", con);
             lblstudent.Text = cmd.ExecuteScalar().ToString();
+            con.Close();
+        }
+        public void CountFaculty()
+        {
+            con.Open();
+            cmd = new MySqlCommand("select count(*) from tblborrowers where type = 'Faculty'", con);
+            lblfaculty.Text = cmd.ExecuteScalar().ToString();
             con.Close();
         }
 
 
         private void btnBookEntry_Click(object sender, EventArgs e)
         {
-            frm_AddBooks frm = new frm_AddBooks();
+            Forms.frm_Books frm = new Forms.frm_Books(this);
             frm.ShowDialog();
         }
 
@@ -128,7 +138,7 @@ namespace The_Keyboarders
 
         private void btnIssuedReturn_Click(object sender, EventArgs e)
         {
-            frm_Issued_Return frm = new frm_Issued_Return();
+            frm_Issued_Return frm = new frm_Issued_Return(this);
             frm.ShowDialog();
         }
 
@@ -148,7 +158,13 @@ namespace The_Keyboarders
 
         private void btnBookAcquired_Click(object sender, EventArgs e)
         {
-            frm_BookList frm = new frm_BookList(this);
+            frm_BookAcquired frm = new frm_BookAcquired();
+            frm.ShowDialog();
+        }
+
+        private void btnBorrowers_Click(object sender, EventArgs e)
+        {
+            frm_borrower frm = new frm_borrower();
             frm.ShowDialog();
         }
     }

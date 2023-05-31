@@ -19,10 +19,8 @@ namespace The_Keyboarders
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
         public string empID;
-        frm_Student_Faculty frm;
-        public frm_addLibrarianstaff(frm_Student_Faculty frms)
+        public frm_addLibrarianstaff()
         {
-            frm = frms;
             InitializeComponent();
             con = new MySqlConnection(db.mycon());
         }
@@ -64,7 +62,6 @@ namespace The_Keyboarders
                     MessageBox.Show("User Information succesfully saved!");
 
                     con.Close();
-                    frm.LoadUser();
                     txt_schoolID.Clear();
                     txt_name.Clear();
                     txt_address.Clear();

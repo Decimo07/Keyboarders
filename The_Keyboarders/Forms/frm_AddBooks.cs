@@ -24,9 +24,10 @@ namespace The_Keyboarders
         MySqlCommand cmd = new MySqlCommand();
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
-        public frm_AddBooks()
+        Forms.frm_Books frm;
+        public frm_AddBooks(Forms.frm_Books form)
         {
-          
+            frm = form;
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
             
@@ -100,7 +101,7 @@ namespace The_Keyboarders
 
                     con.Close();
                     MessageBox.Show("Book succesfully added");
-
+                    frm.LoadBook();
                     tboxasseccion.Clear();  
                     tboxcallno.Clear();
                     tboxtitle.Clear();
