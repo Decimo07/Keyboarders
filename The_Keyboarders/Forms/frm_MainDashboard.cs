@@ -31,7 +31,31 @@ namespace The_Keyboarders
             CountStudent();
             CountFaculty();
             LoadUser();
+            Unreturned();
+            returned();
+            /*NoOfCopies();*/
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
+        public void NoOfCopies()
+        {
+            con.Open();
+            cmd = new MySqlCommand("Select sum(qty) from tblbook where qty > 0", con);
+            lblCopies.Text = cmd.ExecuteScalar().ToString();
+            con.Close();
+        }
+        public void returned()
+        {
+            con.Open();
+            cmd = new MySqlCommand("select count(*) from tblissuedreturn where status = 'returned'", con);
+            lblreturned.Text = cmd.ExecuteScalar().ToString();
+            con.Close();
+        }
+        public void Unreturned()
+        {
+            con.Open();
+            cmd = new MySqlCommand("select count(*) from tblissuedreturn where status = 'unreturned'", con);
+            lblunreturned.Text = cmd.ExecuteScalar().ToString();
+            con.Close();
         }
         public void LoadUser()
         {
@@ -62,10 +86,10 @@ namespace The_Keyboarders
         }
         public void CountOverdue()
         {
-            datenow = DateTime.Now;
+            
             con.Open();
             cmd = new MySqlCommand("select count(*) from tblissuedReturn where due_date < @datenow", con);
-            cmd.Parameters.AddWithValue("@datenow", datenow);
+            cmd.Parameters.AddWithValue("@datenow", DateTime.Now.ToString());
             lbloverdue.Text = cmd.ExecuteScalar().ToString();
             con.Close();
         }
@@ -158,7 +182,7 @@ namespace The_Keyboarders
 
         private void btnBookAcquired_Click(object sender, EventArgs e)
         {
-            frm_BookAcquired frm = new frm_BookAcquired();
+            frm_BookAcquired frm = new frm_BookAcquired(this);
             frm.ShowDialog();
         }
 
@@ -166,6 +190,11 @@ namespace The_Keyboarders
         {
             frm_borrower frm = new frm_borrower();
             frm.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

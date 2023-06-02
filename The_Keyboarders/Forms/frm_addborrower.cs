@@ -117,5 +117,17 @@ namespace The_Keyboarders
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void btnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            tboxBorrowerId.Clear();
+            tboxAddress.Clear();
+            tboxContact.Clear();
+            tboxFname.Clear();
+            tboxLname.Clear();
+            tboxMname.Clear();
+            tboxSuffix.Clear();
+           
+        }
     }
 }

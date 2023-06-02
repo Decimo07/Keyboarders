@@ -80,6 +80,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.booksGridView = new System.Windows.Forms.DataGridView();
+            this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
             this.book_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accession_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,9 +91,9 @@
             this.due_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.penalty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuedby = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.extend = new System.Windows.Forms.DataGridViewImageColumn();
             this.returnbook = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
             this.mainpanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -190,6 +191,7 @@
             // btnScan
             // 
             this.btnScan.BackColor = System.Drawing.Color.Transparent;
+            this.btnScan.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnScan.FlatAppearance.BorderSize = 0;
             this.btnScan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnScan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -206,10 +208,12 @@
             this.btnScan.Text = "  Scan QR Code";
             this.btnScan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnScan.UseVisualStyleBackColor = false;
+            this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
             // 
             // btnLookUpbook
             // 
             this.btnLookUpbook.BackColor = System.Drawing.Color.Transparent;
+            this.btnLookUpbook.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnLookUpbook.FlatAppearance.BorderSize = 0;
             this.btnLookUpbook.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLookUpbook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -226,11 +230,13 @@
             this.btnLookUpbook.Text = "  Lookup Books";
             this.btnLookUpbook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLookUpbook.UseVisualStyleBackColor = false;
+            this.btnLookUpbook.Click += new System.EventHandler(this.btnLookUpbook_Click);
             // 
             // tboxcallno
             // 
             this.tboxcallno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tboxcallno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tboxcallno.Enabled = false;
             this.tboxcallno.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tboxcallno.Location = new System.Drawing.Point(118, 38);
             this.tboxcallno.Margin = new System.Windows.Forms.Padding(2);
@@ -426,6 +432,7 @@
             // tboxBorrower
             // 
             this.tboxBorrower.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tboxBorrower.Enabled = false;
             this.tboxBorrower.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tboxBorrower.Location = new System.Drawing.Point(112, 38);
             this.tboxBorrower.Margin = new System.Windows.Forms.Padding(2);
@@ -537,6 +544,7 @@
             // btnLookUpborrower
             // 
             this.btnLookUpborrower.BackColor = System.Drawing.Color.Transparent;
+            this.btnLookUpborrower.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnLookUpborrower.FlatAppearance.BorderSize = 0;
             this.btnLookUpborrower.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLookUpborrower.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -553,6 +561,7 @@
             this.btnLookUpborrower.Text = "  Lookup Students/ Faculty";
             this.btnLookUpborrower.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLookUpborrower.UseVisualStyleBackColor = false;
+            this.btnLookUpborrower.Click += new System.EventHandler(this.btnLookUpborrower_Click);
             // 
             // toppanel
             // 
@@ -755,6 +764,7 @@
             this.due_date,
             this.penalty,
             this.issuedby,
+            this.status,
             this.extend,
             this.returnbook});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -782,7 +792,15 @@
             this.booksGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.booksGridView.Size = new System.Drawing.Size(1084, 206);
             this.booksGridView.TabIndex = 107;
+            this.booksGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksGridView_CellContentClick);
+            this.booksGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.booksGridView_CellFormatting);
+            this.booksGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksGridView_RowEnter);
             this.booksGridView.SelectionChanged += new System.EventHandler(this.booksGridView_SelectionChanged);
+            // 
+            // ellipseControlArtan1
+            // 
+            this.ellipseControlArtan1.CornerRadius = 20;
+            this.ellipseControlArtan1.TargetControl = this;
             // 
             // book_id
             // 
@@ -862,6 +880,12 @@
             this.issuedby.ReadOnly = true;
             this.issuedby.Width = 84;
             // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            // 
             // extend
             // 
             this.extend.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -882,11 +906,6 @@
             this.returnbook.ReadOnly = true;
             this.returnbook.Width = 5;
             // 
-            // ellipseControlArtan1
-            // 
-            this.ellipseControlArtan1.CornerRadius = 20;
-            this.ellipseControlArtan1.TargetControl = this;
-            // 
             // frm_Issued_Return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -899,6 +918,7 @@
             this.Name = "frm_Issued_Return";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_BookList";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frm_BookList_Load);
             this.mainpanel.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -950,18 +970,6 @@
         private System.Windows.Forms.LinkLabel btnCancel;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn book_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn transno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accession_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn author;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_borrowed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn due_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn penalty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn issuedby;
-        private System.Windows.Forms.DataGridViewImageColumn extend;
-        private System.Windows.Forms.DataGridViewImageColumn returnbook;
         public System.Windows.Forms.DataGridView booksGridView;
         public System.Windows.Forms.TextBox tboxBorrower;
         public System.Windows.Forms.TextBox tboxcontactnumber;
@@ -978,5 +986,18 @@
         public System.Windows.Forms.Label lblPenalty;
         public System.Windows.Forms.Label lbldaysallowed;
         public System.Windows.Forms.Label lblMaxAllowed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn book_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accession_no;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn author;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_borrowed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn due_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn penalty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issuedby;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewImageColumn extend;
+        private System.Windows.Forms.DataGridViewImageColumn returnbook;
     }
 }

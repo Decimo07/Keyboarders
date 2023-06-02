@@ -85,7 +85,7 @@
             this.tboxContact.Location = new System.Drawing.Point(29, 213);
             this.tboxContact.Name = "tboxContact";
             this.tboxContact.Size = new System.Drawing.Size(324, 24);
-            this.tboxContact.TabIndex = 5;
+            this.tboxContact.TabIndex = 6;
             // 
             // label1
             // 
@@ -139,7 +139,7 @@
             this.tboxAddress.Location = new System.Drawing.Point(376, 213);
             this.tboxAddress.Name = "tboxAddress";
             this.tboxAddress.Size = new System.Drawing.Size(355, 24);
-            this.tboxAddress.TabIndex = 6;
+            this.tboxAddress.TabIndex = 7;
             // 
             // panel3
             // 
@@ -267,6 +267,7 @@
             this.btnCancel.TabIndex = 63;
             this.btnCancel.TabStop = true;
             this.btnCancel.Text = "Cancel Current Transaction";
+            this.btnCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnCancel_LinkClicked);
             // 
             // btnSave
             // 
@@ -301,7 +302,7 @@
             this.tboxSuffix.Location = new System.Drawing.Point(671, 146);
             this.tboxSuffix.Name = "tboxSuffix";
             this.tboxSuffix.Size = new System.Drawing.Size(60, 24);
-            this.tboxSuffix.TabIndex = 4;
+            this.tboxSuffix.TabIndex = 5;
             // 
             // label15
             // 
@@ -418,7 +419,7 @@
             this.tboxMname.Location = new System.Drawing.Point(475, 146);
             this.tboxMname.Name = "tboxMname";
             this.tboxMname.Size = new System.Drawing.Size(178, 24);
-            this.tboxMname.TabIndex = 3;
+            this.tboxMname.TabIndex = 4;
             // 
             // label5
             // 

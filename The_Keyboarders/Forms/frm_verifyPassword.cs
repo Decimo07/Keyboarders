@@ -21,10 +21,12 @@ namespace The_Keyboarders.Forms
         Alerts ab = new Alerts();
         MySqlDataReader dr;
         frm_Issued_Return frm;
+        frm_MainDashboard frms;
         public string _password;
-        public frm_verifyPassword(frm_Issued_Return form)
+        public frm_verifyPassword(frm_Issued_Return form, frm_MainDashboard forms)
         {
             con = new MySqlConnection(db.mycon());
+            frms = forms;
             frm = form;
             InitializeComponent();
             
@@ -79,6 +81,11 @@ namespace The_Keyboarders.Forms
                     else
                     {
                         con.Open();
+                        cmd = new MySqlCommand("delete from tblbook where accession_no = @accessionno", con);
+                        cmd.Parameters.AddWithValue("@accessionno", frm.tboxaccessionno.Text);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        con.Open();
                         cmd = new MySqlCommand("insert into tblIssuedReturn (transno, borrower_id, borrower_name, call_no, accession_no, title, author, date_borrowed, due_date,status,issuedby) values(@transno, @borrower_id, @Name, @callno, @accession_no, @title, @author, @dateborrowed, @duedate, 'unreturned', @issuedby)", con);
                         cmd.Parameters.AddWithValue("@transno", frm.lbltransno.Text);
                         cmd.Parameters.AddWithValue("@borrower_id", frm.tboxBorrower.Text);
@@ -93,6 +100,10 @@ namespace The_Keyboarders.Forms
                         cmd.ExecuteNonQuery();
                         ab.AlertBoxs(Color.LightGreen, Color.SeaGreen, "Success", "Transaction successfully saved!", Properties.Resources.check);
                         con.Close();
+
+
+                        
+                        frms.Unreturned();
                         frm.tboxcallno.Clear();
                         frm.LoadIssuedBook();
                         this.Dispose();

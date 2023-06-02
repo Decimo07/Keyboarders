@@ -111,6 +111,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_Alertbox";
             this.Text = "frm_Alertbox";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frm_Alertbox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picAlertbox)).EndInit();
             this.ResumeLayout(false);

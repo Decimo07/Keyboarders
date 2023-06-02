@@ -25,6 +25,7 @@ namespace The_Keyboarders
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
         Forms.frm_Books frm;
+        Alerts ab = new Alerts();
         public frm_AddBooks(Forms.frm_Books form)
         {
             frm = form;
@@ -73,51 +74,65 @@ namespace The_Keyboarders
                     }
                     dr.Close();
                     con.Close();
+                    if (frm._callno == tboxcallno.Text)
+                      {
+                          ab.AlertBoxs(Color.White, Color.DarkRed, "Error", "Call # already exist", Properties.Resources.cross);
+                          con.Close();
+                      }
+                    if (String.IsNullOrEmpty(tboxcallno.Text) || String.IsNullOrEmpty(tboxtitle.Text) || String.IsNullOrEmpty(tboxauthor.Text)|| String.IsNullOrEmpty(tboxYpub.Text)||
+                        String.IsNullOrEmpty(tboxISBN.Text)|| String.IsNullOrEmpty(tboxSubject.Text) || String.IsNullOrEmpty(tboxprice.Text) || String.IsNullOrEmpty(cbox_category.Text) || String.IsNullOrEmpty(tboxpublisher.Text))
+                    {
+                        ab.AlertBoxs(Color.White, Color.DarkRed, "Some text fields are Empty", "Please make sure to fill up the required fields", Properties.Resources.cross);
+                        con.Close();
 
-                    con.Open();
-                    cmd = new MySqlCommand("insert into tblbook (accession_no, call_no, title, author, year_published, isbn, notes, subject, series, price, publisher, cid, qty, qrcode, book_image) values (@accession_no, @call_no, @title, @author, @year_publish, @isbn, @notes, @subject, @series, @price, @publisher, @category, 0, @qrcode, @bookimage)", con);
-                    cmd.Parameters.AddWithValue("@accession_no", tboxasseccion.Text);
-                    cmd.Parameters.AddWithValue("@call_no", tboxcallno.Text);
-                    cmd.Parameters.AddWithValue("@title", tboxtitle.Text);
-                    cmd.Parameters.AddWithValue("@author", tboxauthor.Text);
-                    cmd.Parameters.AddWithValue("@year_publish", tboxYpub.Text);
-                    cmd.Parameters.AddWithValue("@isbn", tboxISBN.Text);
-                    cmd.Parameters.AddWithValue("@notes", tboxNotes.Text);
-                    cmd.Parameters.AddWithValue("@subject", tboxSubject.Text);
-                    cmd.Parameters.AddWithValue("@series", tboxseries.Text);
-                    cmd.Parameters.AddWithValue("@price", tboxprice.Text);
-                    cmd.Parameters.AddWithValue("@publisher", tboxpublisher.Text);
-                    cmd.Parameters.AddWithValue("@category", category);
-                    MemoryStream ms = new MemoryStream();
-                    MemoryStream mr = new MemoryStream();
-                    QRCODE.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    BOOKIMAGE.Image.Save(mr, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    byte[] qr_code = ms.ToArray();
-                    byte[] book_image = mr.ToArray();
+                    }
+                    
+                    
+                    else
+                    {
+                        con.Open();
+                        cmd = new MySqlCommand("insert into tblbook (call_no, title, author, year_published, isbn, notes, subject, series, price, publisher, cid, qrcode, book_image) values (@call_no, @title, @author, @year_publish, @isbn, @notes, @subject, @series, @price, @publisher, @category, @qrcode, @bookimage)", con);
+                        cmd.Parameters.AddWithValue("@call_no", tboxcallno.Text);
+                        cmd.Parameters.AddWithValue("@title", tboxtitle.Text);
+                        cmd.Parameters.AddWithValue("@author", tboxauthor.Text);
+                        cmd.Parameters.AddWithValue("@year_publish", tboxYpub.Text);
+                        cmd.Parameters.AddWithValue("@isbn", tboxISBN.Text);
+                        cmd.Parameters.AddWithValue("@notes", tboxNotes.Text);
+                        cmd.Parameters.AddWithValue("@subject", tboxSubject.Text);
+                        cmd.Parameters.AddWithValue("@series", tboxseries.Text);
+                        cmd.Parameters.AddWithValue("@price", tboxprice.Text);
+                        cmd.Parameters.AddWithValue("@publisher", tboxpublisher.Text);
+                        cmd.Parameters.AddWithValue("@category", category);
+                        MemoryStream ms = new MemoryStream();
+                        MemoryStream mr = new MemoryStream();
+                        QRCODE.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        BOOKIMAGE.Image.Save(mr, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        byte[] qr_code = ms.ToArray();
+                        byte[] book_image = mr.ToArray();
 
-                    cmd.Parameters.AddWithValue("@qrcode", qr_code);
-                    cmd.Parameters.AddWithValue("@bookimage", book_image);
-                    cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@qrcode", qr_code);
+                        cmd.Parameters.AddWithValue("@bookimage", book_image);
+                        cmd.ExecuteNonQuery();
 
-                    con.Close();
-                    MessageBox.Show("Book succesfully added");
-                    frm.LoadBook();
-                    tboxasseccion.Clear();  
-                    tboxcallno.Clear();
-                    tboxtitle.Clear();
-                    tboxauthor.Clear();
-                    tboxYpub.Clear();
-                    tboxISBN.Clear();
-                    tboxNotes.Clear();
-                    tboxSubject.Clear();
-                    tboxseries.Clear();
-                    tboxprice.Clear();
-                    tboxpublisher.Clear();
+                        con.Close();
+                        ab.AlertBoxs(Color.White, Color.SeaGreen, "Success", "New book is added successfully!", Properties.Resources.check);
+                        frm.LoadBook();
+                        tboxcallno.Clear();
+                        tboxtitle.Clear();
+                        tboxauthor.Clear();
+                        tboxYpub.Clear();
+                        tboxISBN.Clear();
+                        tboxNotes.Clear();
+                        tboxSubject.Clear();
+                        tboxseries.Clear();
+                        tboxprice.Clear();
+                        tboxpublisher.Clear();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Inputs Cancelled!");
-                   
+                    ab.AlertBoxs(Color.White, Color.DarkRed, "Message", "Inputs Cancelled!", Properties.Resources.cross);
+                    con.Close();
                 }
 
                
@@ -159,9 +174,7 @@ namespace The_Keyboarders
         {
             QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
             QrCode qr;
-            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
-                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
-                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
+            encoder.TryEncode(tboxcallno.Text, out qr);
             GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
             using (MemoryStream ms = new MemoryStream())
             {
@@ -177,64 +190,23 @@ namespace The_Keyboarders
 
         private void tboxtitle_TextChanged(object sender, EventArgs e)
         {
-            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
-            QrCode qr;
-            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
-                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
-                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
-            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
-            using (MemoryStream ms = new MemoryStream())
-            {
-                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
-                QRCODE.Image = new Bitmap(ms);
-            }
+           
         }
 
         private void tboxauthor_TextChanged(object sender, EventArgs e)
         {
-            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
-            QrCode qr;
-            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
-                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
-                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
-            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
-            using (MemoryStream ms = new MemoryStream())
-            {
-                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
-                QRCODE.Image = new Bitmap(ms);
-            }
+           
         }
 
         private void tboxYpub_TextChanged(object sender, EventArgs e)
         {
-            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
-            QrCode qr;
-            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
-                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
-                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
-            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
-            using (MemoryStream ms = new MemoryStream())
-            {
-                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
-                QRCODE.Image = new Bitmap(ms);
-            }
+           
         }
 
         private void tboxISBN_TextChanged(object sender, EventArgs e)
         {
-            QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.H);
-            QrCode qr;
-            encoder.TryEncode("Call No: " + tboxcallno.Text + Environment.NewLine + "Main Title: " +
-                tboxtitle.Text + Environment.NewLine + "Author: " + tboxauthor.Text + Environment.NewLine + "Year Published: " + tboxYpub.Text
-                + Environment.NewLine + "ISBN: " + tboxISBN.Text, out qr);
-            GraphicsRenderer renderer = new GraphicsRenderer(new FixedModuleSize(4, QuietZoneModules.Two), Brushes.Black, Brushes.White);
-            using (MemoryStream ms = new MemoryStream())
-            {
-                renderer.WriteToStream(qr.Matrix, ImageFormat.Png, ms);
-                QRCODE.Image = new Bitmap(ms);
-            } 
-        }
 
+        }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -244,6 +216,25 @@ namespace The_Keyboarders
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (MessageBox.Show("Cancel the current process?", "Cancel Process", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                tboxauthor.Clear();
+                tboxcallno.Clear();
+                tboxISBN.Clear();
+                tboxNotes.Clear();
+                tboxprice.Clear();
+                tboxpublisher.Clear();
+                tboxseries.Clear();
+                tboxSubject.Clear();
+                tboxtitle.Clear();
+                tboxYpub.Clear();
+                BOOKIMAGE.Image = Properties.Resources.user;
+            }
         }
     }
 }

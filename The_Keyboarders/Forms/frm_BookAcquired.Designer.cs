@@ -29,24 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_BookAcquired));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toppanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.mainpanel = new System.Windows.Forms.Panel();
             this.booksGridView = new System.Windows.Forms.DataGridView();
-            this.book_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accessionNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Call_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qr_code = new System.Windows.Forms.DataGridViewImageColumn();
-            this.book_image = new System.Windows.Forms.DataGridViewImageColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tboxCopies = new System.Windows.Forms.NumericUpDown();
             this.tbox_search = new MetroFramework.Controls.MetroTextBox();
@@ -67,7 +58,23 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.book_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accessionNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Call_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearpub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.series = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qr_code = new System.Windows.Forms.DataGridViewImageColumn();
+            this.book_image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.toppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.mainpanel.SuspendLayout();
@@ -127,12 +134,12 @@
             this.booksGridView.AllowUserToDeleteRows = false;
             this.booksGridView.BackgroundColor = System.Drawing.Color.White;
             this.booksGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.booksGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.booksGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.booksGridView.ColumnHeadersHeight = 30;
             this.booksGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.booksGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -141,19 +148,26 @@
             this.Call_No,
             this.title,
             this.column1,
+            this.yearpub,
             this.isbn,
+            this.notes,
+            this.subject,
+            this.series,
+            this.price,
+            this.publisher,
+            this.cid,
+            this.qty,
             this.qr_code,
             this.book_image,
-            this.qty,
             this.edit});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.booksGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.booksGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.booksGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.booksGridView.EnableHeadersVisualStyles = false;
             this.booksGridView.Location = new System.Drawing.Point(0, 26);
@@ -162,91 +176,16 @@
             this.booksGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.booksGridView.RowHeadersVisible = false;
             this.booksGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.booksGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.booksGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.booksGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.booksGridView.Size = new System.Drawing.Size(746, 263);
             this.booksGridView.TabIndex = 105;
             this.booksGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksGridView_CellContentClick);
             this.booksGridView.SelectionChanged += new System.EventHandler(this.booksGridView_SelectionChanged);
-            // 
-            // book_id
-            // 
-            this.book_id.HeaderText = "";
-            this.book_id.Name = "book_id";
-            this.book_id.ReadOnly = true;
-            this.book_id.Visible = false;
-            // 
-            // accessionNum
-            // 
-            this.accessionNum.HeaderText = "";
-            this.accessionNum.Name = "accessionNum";
-            this.accessionNum.ReadOnly = true;
-            this.accessionNum.Visible = false;
-            // 
-            // Call_No
-            // 
-            this.Call_No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Call_No.HeaderText = "Call No";
-            this.Call_No.Name = "Call_No";
-            this.Call_No.ReadOnly = true;
-            this.Call_No.Width = 75;
-            // 
-            // title
-            // 
-            this.title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.title.HeaderText = "Title";
-            this.title.Name = "title";
-            this.title.ReadOnly = true;
-            // 
-            // column1
-            // 
-            this.column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.column1.HeaderText = "Author";
-            this.column1.Name = "column1";
-            this.column1.ReadOnly = true;
-            this.column1.Width = 73;
-            // 
-            // isbn
-            // 
-            this.isbn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.isbn.HeaderText = "ISBN";
-            this.isbn.Name = "isbn";
-            this.isbn.ReadOnly = true;
-            this.isbn.Width = 58;
-            // 
-            // qr_code
-            // 
-            this.qr_code.HeaderText = "";
-            this.qr_code.Name = "qr_code";
-            this.qr_code.ReadOnly = true;
-            this.qr_code.Visible = false;
-            // 
-            // book_image
-            // 
-            this.book_image.HeaderText = "";
-            this.book_image.Name = "book_image";
-            this.book_image.ReadOnly = true;
-            this.book_image.Visible = false;
-            // 
-            // qty
-            // 
-            this.qty.HeaderText = "";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Visible = false;
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.HeaderText = "";
-            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Width = 5;
             // 
             // groupBox1
             // 
@@ -272,6 +211,22 @@
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book Details";
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Location = new System.Drawing.Point(649, 227);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(88, 30);
+            this.btnClose.TabIndex = 19;
+            this.btnClose.Text = "Cancel";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Visible = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
@@ -526,21 +481,129 @@
             this.ellipseControlArtan1.CornerRadius = 20;
             this.ellipseControlArtan1.TargetControl = this;
             // 
-            // btnClose
+            // book_id
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClose.Location = new System.Drawing.Point(649, 227);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(88, 30);
-            this.btnClose.TabIndex = 19;
-            this.btnClose.Text = "Cancel";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Visible = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.book_id.HeaderText = "";
+            this.book_id.Name = "book_id";
+            this.book_id.ReadOnly = true;
+            this.book_id.Visible = false;
+            // 
+            // accessionNum
+            // 
+            this.accessionNum.HeaderText = "";
+            this.accessionNum.Name = "accessionNum";
+            this.accessionNum.ReadOnly = true;
+            this.accessionNum.Visible = false;
+            // 
+            // Call_No
+            // 
+            this.Call_No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Call_No.HeaderText = "Call No";
+            this.Call_No.Name = "Call_No";
+            this.Call_No.ReadOnly = true;
+            this.Call_No.Width = 75;
+            // 
+            // title
+            // 
+            this.title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.title.HeaderText = "Title";
+            this.title.Name = "title";
+            this.title.ReadOnly = true;
+            // 
+            // column1
+            // 
+            this.column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.column1.HeaderText = "Author";
+            this.column1.Name = "column1";
+            this.column1.ReadOnly = true;
+            this.column1.Width = 73;
+            // 
+            // yearpub
+            // 
+            this.yearpub.HeaderText = "";
+            this.yearpub.Name = "yearpub";
+            this.yearpub.ReadOnly = true;
+            this.yearpub.Visible = false;
+            // 
+            // isbn
+            // 
+            this.isbn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.isbn.HeaderText = "ISBN";
+            this.isbn.Name = "isbn";
+            this.isbn.ReadOnly = true;
+            this.isbn.Width = 58;
+            // 
+            // notes
+            // 
+            this.notes.HeaderText = "";
+            this.notes.Name = "notes";
+            this.notes.ReadOnly = true;
+            this.notes.Visible = false;
+            // 
+            // subject
+            // 
+            this.subject.HeaderText = "";
+            this.subject.Name = "subject";
+            this.subject.ReadOnly = true;
+            this.subject.Visible = false;
+            // 
+            // series
+            // 
+            this.series.HeaderText = "";
+            this.series.Name = "series";
+            this.series.ReadOnly = true;
+            this.series.Visible = false;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Visible = false;
+            // 
+            // publisher
+            // 
+            this.publisher.HeaderText = "";
+            this.publisher.Name = "publisher";
+            this.publisher.ReadOnly = true;
+            this.publisher.Visible = false;
+            // 
+            // cid
+            // 
+            this.cid.HeaderText = "";
+            this.cid.Name = "cid";
+            this.cid.ReadOnly = true;
+            this.cid.Visible = false;
+            // 
+            // qty
+            // 
+            this.qty.HeaderText = "";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Visible = false;
+            // 
+            // qr_code
+            // 
+            this.qr_code.HeaderText = "";
+            this.qr_code.Name = "qr_code";
+            this.qr_code.ReadOnly = true;
+            this.qr_code.Visible = false;
+            // 
+            // book_image
+            // 
+            this.book_image.HeaderText = "";
+            this.book_image.Name = "book_image";
+            this.book_image.ReadOnly = true;
+            this.book_image.Visible = false;
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.edit.HeaderText = "";
+            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Width = 5;
             // 
             // frm_BookAcquired
             // 
@@ -555,6 +618,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_BookAcquired";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frm_BookList_Load);
             this.toppanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -599,16 +663,23 @@
         private System.Windows.Forms.NumericUpDown tboxCopies;
         private System.Windows.Forms.Button btnSave;
         private Class.EllipseControlArtan ellipseControlArtan1;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridViewTextBoxColumn book_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn accessionNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Call_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearpub;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn series;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publisher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewImageColumn qr_code;
         private System.Windows.Forms.DataGridViewImageColumn book_image;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewImageColumn edit;
-        private System.Windows.Forms.Button btnClose;
     }
 }

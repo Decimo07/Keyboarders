@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using MySql.Data.MySqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using The_Keyboarders.Class;
+using The_Keyboarders.Forms;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace The_Keyboarders
 {
     public partial class frm_Issued_Return : Form
     {
-        Class.Alerts ab = new Alerts();
+        Alerts ab = new Alerts();
         MySqlCommand cmd = new MySqlCommand();
         MySqlConnection con = new MySqlConnection();
         dbconnection db = new dbconnection();
@@ -24,15 +20,18 @@ namespace The_Keyboarders
         public string un;
         public string due;
         public string user;
-        frm_MainDashboard frm;
+        public string _status;
+        public string _transno;
+        frm_MainDashboard frms;
+       
         public frm_Issued_Return(frm_MainDashboard form)
         {
-            frm = form;
+            frms = form;
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
             
-            user = frm.lblUser.Text;
-            un = frm.uname;
+            user = frms.lblUser.Text;
+            un = frms.uname;
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -88,13 +87,13 @@ namespace The_Keyboarders
             int i = 0;
             booksGridView.Rows.Clear();
             con.Open();
-            cmd = new MySqlCommand("select transno, accession_no, call_no, title, author, date_borrowed, due_date, penalty, issuedby from tblIssuedReturn where borrower_id = @borrower", con);
+            cmd = new MySqlCommand("select transno, accession_no, call_no, title, author, date_borrowed, due_date, penalty, issuedby, status from tblIssuedReturn where borrower_id = @borrower and status = 'unreturned'", con);
             cmd.Parameters.AddWithValue("@borrower", tboxBorrower.Text);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                booksGridView.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                booksGridView.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
 
             }
             dr.Close();
@@ -140,13 +139,11 @@ namespace The_Keyboarders
         }
         private void btnborrow_Click(object sender, EventArgs e)
         {
+            
             GetTransno();
             try
             {
-                
-                
                 dateborrowed = DateTime.Now;
-                
                 if (tboxType.Text == "Faculty")
                 {
                     due = "no limit";
@@ -156,14 +153,11 @@ namespace The_Keyboarders
                     duedate = dateborrowed.AddDays(int.Parse(lbldaysallowed.Text));
                     due = duedate.ToString("MM/dd/yyyy hh:mm:ss tt");
                 }
-                
-
-               
                 //display the transaction details
                 if (MessageBox.Show("Transaction #:   " + lbltransno.Text + Environment.NewLine + "Borrower ID:   " + tboxBorrower.Text + Environment.NewLine + "Name:   " + tboxfname.Text + Environment.NewLine + "Address:   " + tboxaddress.Text + Environment.NewLine + "Call No.:   " + tboxcallno.Text + Environment.NewLine + "Title:   " + tboxtitle.Text + Environment.NewLine + "Author:   " + tboxauthor.Text + Environment.NewLine + "Date Borrowed:   " + dateborrowed.ToString("MM/dd/yyyy hh:mm:ss tt") + Environment.NewLine + "Due Date:   " + due + Environment.NewLine + Environment.NewLine +
                     "do you want approved this loan?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Forms.frm_verifyPassword frm = new Forms.frm_verifyPassword(this);
+                    Forms.frm_verifyPassword frm = new Forms.frm_verifyPassword(this, frms);
                     frm.ShowDialog();
                    
                 }
@@ -217,12 +211,85 @@ namespace The_Keyboarders
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            
             this.Dispose();
         }
 
         private void btnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             tboxcallno.Clear();
+        }
+
+        private void btnLookUpbook_Click(object sender, EventArgs e)
+        {
+            frm_LookUpBook frm = new frm_LookUpBook(this);
+            frm.ShowDialog();
+        }
+
+        private void btnLookUpborrower_Click(object sender, EventArgs e)
+        {
+            frm_LookUpBorrower frm = new frm_LookUpBorrower(this);
+            frm.ShowDialog();
+        }
+        
+        
+
+        private void toppanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnScan_Click(object sender, EventArgs e)
+        {
+            frm_ScanQR frm = new frm_ScanQR(this);
+            frm.ShowDialog();
+        }
+
+        private void booksGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            string colname = booksGridView.Columns[e.ColumnIndex].Name;
+            if(colname == "returnbook")
+            {
+                if(MessageBox.Show("Mark this transaction as returned?","Confirmation",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    con.Open();
+                    cmd = new MySqlCommand("update tblissuedreturn set status = @status, date_returned = @datereturned where transno = @transno", con);
+                    cmd.Parameters.AddWithValue("@status", "Returned");
+                    cmd.Parameters.AddWithValue("@transno", booksGridView.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    cmd.Parameters.AddWithValue("@datereturned", DateTime.Now.ToString("MM/dd/yyyy hh: mm:ss tt"));
+                    cmd.ExecuteNonQuery();
+                    ab.AlertBoxs(Color.White, Color.SeaGreen, "Message", "This book has successfully returned", Properties.Resources.check);
+                    con.Close();
+                    frms.returned();
+                    frms.Unreturned();
+                    LoadIssuedBook();
+                }
+                
+            }
+        }
+
+        private void booksGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void booksGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {/*
+            string colname = booksGridView.Columns[e.ColumnIndex].Name;
+            if (colname == "status")
+              {
+                    if(e.Value.ToString() == "unreturned")
+                {
+                    booksGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gray;
+                    booksGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                }
+                else
+                {
+                    booksGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    booksGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Green;
+                }
+              }*/
+            
         }
     }
 }

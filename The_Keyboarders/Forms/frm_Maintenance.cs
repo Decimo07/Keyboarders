@@ -19,7 +19,7 @@ namespace The_Keyboarders
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
         public string _category;
-        bool found = false;
+        public bool found = false;
         public frm_Maintenance()
         {
             con = new MySqlConnection(db.mycon());

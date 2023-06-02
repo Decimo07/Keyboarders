@@ -1,6 +1,6 @@
 ﻿namespace The_Keyboarders.Forms
 {
-    partial class frm_Books
+    partial class frm_LookUpBook
     {
         /// <summary>
         /// Required designer variable.
@@ -31,15 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Books));
-            this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_LookUpBook));
             this.panel1 = new System.Windows.Forms.Panel();
             this.booksGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.tbox_search = new MetroFramework.Controls.MetroTextBox();
-            this.toppanel = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.book_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accessionNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Call_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,25 +44,22 @@
             this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qr_code = new System.Windows.Forms.DataGridViewImageColumn();
-            this.book_image = new System.Windows.Forms.DataGridViewImageColumn();
-            this.view = new System.Windows.Forms.DataGridViewImageColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.check = new System.Windows.Forms.DataGridViewImageColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbox_search = new MetroFramework.Controls.MetroTextBox();
+            this.toppanel = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
+            this.ellipseControlArtan2 = new The_Keyboarders.Class.EllipseControlArtan();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.toppanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ellipseControlArtan1
-            // 
-            this.ellipseControlArtan1.CornerRadius = 20;
-            this.ellipseControlArtan1.TargetControl = this;
             // 
             // panel1
             // 
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.booksGridView);
             this.panel1.Controls.Add(this.groupBox2);
@@ -76,7 +67,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(999, 546);
+            this.panel1.Size = new System.Drawing.Size(990, 509);
             this.panel1.TabIndex = 0;
             // 
             // booksGridView
@@ -105,10 +96,7 @@
             this.subject,
             this.publisher,
             this.qty,
-            this.qr_code,
-            this.book_image,
-            this.view,
-            this.edit});
+            this.check});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,7 +108,7 @@
             this.booksGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.booksGridView.EnableHeadersVisualStyles = false;
             this.booksGridView.GridColor = System.Drawing.SystemColors.Info;
-            this.booksGridView.Location = new System.Drawing.Point(0, 66);
+            this.booksGridView.Location = new System.Drawing.Point(0, 69);
             this.booksGridView.Name = "booksGridView";
             this.booksGridView.ReadOnly = true;
             this.booksGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -132,102 +120,9 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.booksGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.booksGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.booksGridView.Size = new System.Drawing.Size(997, 478);
-            this.booksGridView.TabIndex = 106;
-            this.booksGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksGridView_RowEnter);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.Controls.Add(this.tbox_search);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(0, 21);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(997, 45);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Books";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAdd.Location = new System.Drawing.Point(862, 16);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(124, 26);
-            this.btnAdd.TabIndex = 108;
-            this.btnAdd.Text = "  Add New Book";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // tbox_search
-            // 
-            // 
-            // 
-            // 
-            this.tbox_search.CustomButton.Image = null;
-            this.tbox_search.CustomButton.Location = new System.Drawing.Point(342, 2);
-            this.tbox_search.CustomButton.Name = "";
-            this.tbox_search.CustomButton.Size = new System.Drawing.Size(25, 25);
-            this.tbox_search.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbox_search.CustomButton.TabIndex = 1;
-            this.tbox_search.CustomButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.tbox_search.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbox_search.CustomButton.UseSelectable = true;
-            this.tbox_search.CustomButton.Visible = false;
-            this.tbox_search.DisplayIcon = true;
-            this.tbox_search.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-            this.tbox_search.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbox_search.Icon = ((System.Drawing.Image)(resources.GetObject("tbox_search.Icon")));
-            this.tbox_search.Lines = new string[0];
-            this.tbox_search.Location = new System.Drawing.Point(301, 12);
-            this.tbox_search.MaxLength = 32767;
-            this.tbox_search.Name = "tbox_search";
-            this.tbox_search.PasswordChar = '\0';
-            this.tbox_search.PromptText = "Search";
-            this.tbox_search.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbox_search.SelectedText = "";
-            this.tbox_search.SelectionLength = 0;
-            this.tbox_search.SelectionStart = 0;
-            this.tbox_search.ShortcutsEnabled = true;
-            this.tbox_search.Size = new System.Drawing.Size(370, 30);
-            this.tbox_search.TabIndex = 107;
-            this.tbox_search.UseSelectable = true;
-            this.tbox_search.WaterMark = "Search";
-            this.tbox_search.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbox_search.WaterMarkFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // toppanel
-            // 
-            this.toppanel.BackColor = System.Drawing.Color.Silver;
-            this.toppanel.Controls.Add(this.pictureBox2);
-            this.toppanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.toppanel.Location = new System.Drawing.Point(0, 0);
-            this.toppanel.Margin = new System.Windows.Forms.Padding(2);
-            this.toppanel.Name = "toppanel";
-            this.toppanel.Size = new System.Drawing.Size(997, 21);
-            this.toppanel.TabIndex = 1;
-            this.toppanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toppanel_MouseDown);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(977, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 21);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 23;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.booksGridView.Size = new System.Drawing.Size(988, 438);
+            this.booksGridView.TabIndex = 112;
+            this.booksGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksGridView_CellContentClick);
             // 
             // book_id
             // 
@@ -242,7 +137,6 @@
             this.accessionNum.HeaderText = "#";
             this.accessionNum.Name = "accessionNum";
             this.accessionNum.ReadOnly = true;
-            this.accessionNum.Visible = false;
             this.accessionNum.Width = 41;
             // 
             // Call_No
@@ -308,69 +202,135 @@
             this.qty.ReadOnly = true;
             this.qty.Width = 70;
             // 
-            // qr_code
+            // check
             // 
-            this.qr_code.HeaderText = "";
-            this.qr_code.Name = "qr_code";
-            this.qr_code.ReadOnly = true;
-            this.qr_code.Visible = false;
+            this.check.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.check.HeaderText = "";
+            this.check.Image = ((System.Drawing.Image)(resources.GetObject("check.Image")));
+            this.check.Name = "check";
+            this.check.ReadOnly = true;
+            this.check.Width = 5;
             // 
-            // book_image
+            // groupBox2
             // 
-            this.book_image.HeaderText = "";
-            this.book_image.Name = "book_image";
-            this.book_image.ReadOnly = true;
-            this.book_image.Visible = false;
+            this.groupBox2.Controls.Add(this.tbox_search);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(0, 18);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(988, 51);
+            this.groupBox2.TabIndex = 111;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Books";
             // 
-            // view
+            // tbox_search
             // 
-            this.view.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.view.HeaderText = "";
-            this.view.Image = ((System.Drawing.Image)(resources.GetObject("view.Image")));
-            this.view.Name = "view";
-            this.view.ReadOnly = true;
-            this.view.Width = 5;
             // 
-            // edit
             // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.HeaderText = "";
-            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Width = 5;
             // 
-            // frm_Books
+            this.tbox_search.CustomButton.Image = null;
+            this.tbox_search.CustomButton.Location = new System.Drawing.Point(344, 1);
+            this.tbox_search.CustomButton.Name = "";
+            this.tbox_search.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.tbox_search.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbox_search.CustomButton.TabIndex = 1;
+            this.tbox_search.CustomButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.tbox_search.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbox_search.CustomButton.UseSelectable = true;
+            this.tbox_search.CustomButton.Visible = false;
+            this.tbox_search.DisplayIcon = true;
+            this.tbox_search.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tbox_search.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+            this.tbox_search.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbox_search.Icon = ((System.Drawing.Image)(resources.GetObject("tbox_search.Icon")));
+            this.tbox_search.Lines = new string[0];
+            this.tbox_search.Location = new System.Drawing.Point(615, 21);
+            this.tbox_search.MaxLength = 32767;
+            this.tbox_search.Name = "tbox_search";
+            this.tbox_search.PasswordChar = '\0';
+            this.tbox_search.PromptText = "Search";
+            this.tbox_search.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbox_search.SelectedText = "";
+            this.tbox_search.SelectionLength = 0;
+            this.tbox_search.SelectionStart = 0;
+            this.tbox_search.ShortcutsEnabled = true;
+            this.tbox_search.Size = new System.Drawing.Size(370, 27);
+            this.tbox_search.TabIndex = 107;
+            this.tbox_search.UseSelectable = true;
+            this.tbox_search.WaterMark = "Search";
+            this.tbox_search.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbox_search.WaterMarkFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbox_search.TextChanged += new System.EventHandler(this.tbox_search_TextChanged);
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
+            // toppanel
+            // 
+            this.toppanel.BackColor = System.Drawing.Color.Silver;
+            this.toppanel.Controls.Add(this.pictureBox3);
+            this.toppanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.toppanel.Location = new System.Drawing.Point(0, 0);
+            this.toppanel.Margin = new System.Windows.Forms.Padding(2);
+            this.toppanel.Name = "toppanel";
+            this.toppanel.Size = new System.Drawing.Size(988, 18);
+            this.toppanel.TabIndex = 110;
+            this.toppanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toppanel_MouseDown);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(968, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(20, 18);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 23;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // ellipseControlArtan1
+            // 
+            this.ellipseControlArtan1.CornerRadius = 20;
+            this.ellipseControlArtan1.TargetControl = this;
+            // 
+            // ellipseControlArtan2
+            // 
+            this.ellipseControlArtan2.CornerRadius = 20;
+            this.ellipseControlArtan2.TargetControl = this.panel1;
+            // 
+            // frm_LookUpBook
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 546);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(990, 509);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frm_Books";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "frm_LookUpBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_Books";
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.booksGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.toppanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Class.EllipseControlArtan ellipseControlArtan1;
         private System.Windows.Forms.Panel panel1;
+        private Class.EllipseControlArtan ellipseControlArtan1;
+        private Class.EllipseControlArtan ellipseControlArtan2;
         private System.Windows.Forms.Panel toppanel;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroTextBox tbox_search;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView booksGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn book_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn accessionNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Call_No;
@@ -381,10 +341,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn subject;
         private System.Windows.Forms.DataGridViewTextBoxColumn publisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private System.Windows.Forms.DataGridViewImageColumn qr_code;
-        private System.Windows.Forms.DataGridViewImageColumn book_image;
-        private System.Windows.Forms.DataGridViewImageColumn view;
-        private System.Windows.Forms.DataGridViewImageColumn edit;
-        public System.Windows.Forms.DataGridView booksGridView;
+        private System.Windows.Forms.DataGridViewImageColumn check;
     }
 }

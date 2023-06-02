@@ -64,24 +64,24 @@
             this.lbloverdue = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblreturned = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblfaculty = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
-            this.lblIssued = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblstudent = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblunreturned = new System.Windows.Forms.Label();
+            this.lblfaculty = new System.Windows.Forms.Label();
+            this.lblstudent = new System.Windows.Forms.Label();
+            this.lblIssued = new System.Windows.Forms.Label();
+            this.lblCopies = new System.Windows.Forms.Label();
             this.lblNoOfBook = new System.Windows.Forms.Label();
             this.TopPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -226,6 +226,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnClose
             // 
@@ -559,9 +560,8 @@
             this.label20.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(9, 11);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(24, 27);
+            this.label20.Size = new System.Drawing.Size(0, 27);
             this.label20.TabIndex = 0;
-            this.label20.Text = "0";
             // 
             // panel10
             // 
@@ -592,9 +592,8 @@
             this.lblcategory.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcategory.Location = new System.Drawing.Point(9, 11);
             this.lblcategory.Name = "lblcategory";
-            this.lblcategory.Size = new System.Drawing.Size(24, 27);
+            this.lblcategory.Size = new System.Drawing.Size(0, 27);
             this.lblcategory.TabIndex = 0;
-            this.lblcategory.Text = "0";
             this.lblcategory.Click += new System.EventHandler(this.lblcategory_Click);
             // 
             // panel6
@@ -625,16 +624,15 @@
             this.lbloverdue.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbloverdue.Location = new System.Drawing.Point(9, 11);
             this.lbloverdue.Name = "lbloverdue";
-            this.lbloverdue.Size = new System.Drawing.Size(24, 27);
+            this.lbloverdue.Size = new System.Drawing.Size(0, 27);
             this.lbloverdue.TabIndex = 0;
-            this.lbloverdue.Text = "0";
             // 
             // panel5
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.lblCopies);
             this.panel5.Location = new System.Drawing.Point(164, 233);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
@@ -651,22 +649,12 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "BOOKS COPIES";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 11);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 27);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "0";
-            // 
             // panel7
             // 
             this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel7.Controls.Add(this.label11);
-            this.panel7.Controls.Add(this.label12);
+            this.panel7.Controls.Add(this.lblunreturned);
             this.panel7.Location = new System.Drawing.Point(761, 233);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
@@ -683,22 +671,12 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "UNRETURNED";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(9, 11);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(24, 27);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "0";
-            // 
             // panel8
             // 
             this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel8.Controls.Add(this.label13);
-            this.panel8.Controls.Add(this.label14);
+            this.panel8.Controls.Add(this.lblreturned);
             this.panel8.Location = new System.Drawing.Point(761, 359);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel8.Name = "panel8";
@@ -715,15 +693,14 @@
             this.label13.TabIndex = 1;
             this.label13.Text = "RETURNED";
             // 
-            // label14
+            // lblreturned
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(9, 11);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(24, 27);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "0";
+            this.lblreturned.AutoSize = true;
+            this.lblreturned.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblreturned.Location = new System.Drawing.Point(9, 11);
+            this.lblreturned.Name = "lblreturned";
+            this.lblreturned.Size = new System.Drawing.Size(0, 27);
+            this.lblreturned.TabIndex = 0;
             // 
             // panel4
             // 
@@ -747,16 +724,6 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "FACULTY";
             // 
-            // lblfaculty
-            // 
-            this.lblfaculty.AutoSize = true;
-            this.lblfaculty.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfaculty.Location = new System.Drawing.Point(9, 11);
-            this.lblfaculty.Name = "lblfaculty";
-            this.lblfaculty.Size = new System.Drawing.Size(24, 27);
-            this.lblfaculty.TabIndex = 0;
-            this.lblfaculty.Text = "0";
-            // 
             // panel9
             // 
             this.panel9.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -778,16 +745,6 @@
             this.label15.Size = new System.Drawing.Size(63, 26);
             this.label15.TabIndex = 1;
             this.label15.Text = "ISSUED";
-            // 
-            // lblIssued
-            // 
-            this.lblIssued.AutoSize = true;
-            this.lblIssued.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssued.Location = new System.Drawing.Point(9, 11);
-            this.lblIssued.Name = "lblIssued";
-            this.lblIssued.Size = new System.Drawing.Size(24, 27);
-            this.lblIssued.TabIndex = 0;
-            this.lblIssued.Text = "0";
             // 
             // panel3
             // 
@@ -812,16 +769,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "STUDENT";
             // 
-            // lblstudent
-            // 
-            this.lblstudent.AutoSize = true;
-            this.lblstudent.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstudent.Location = new System.Drawing.Point(9, 11);
-            this.lblstudent.Name = "lblstudent";
-            this.lblstudent.Size = new System.Drawing.Size(24, 27);
-            this.lblstudent.TabIndex = 0;
-            this.lblstudent.Text = "0";
-            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -845,15 +792,59 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "BOOKS";
             // 
+            // lblunreturned
+            // 
+            this.lblunreturned.AutoSize = true;
+            this.lblunreturned.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblunreturned.Location = new System.Drawing.Point(9, 11);
+            this.lblunreturned.Name = "lblunreturned";
+            this.lblunreturned.Size = new System.Drawing.Size(0, 27);
+            this.lblunreturned.TabIndex = 0;
+            // 
+            // lblfaculty
+            // 
+            this.lblfaculty.AutoSize = true;
+            this.lblfaculty.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfaculty.Location = new System.Drawing.Point(9, 11);
+            this.lblfaculty.Name = "lblfaculty";
+            this.lblfaculty.Size = new System.Drawing.Size(0, 27);
+            this.lblfaculty.TabIndex = 0;
+            // 
+            // lblstudent
+            // 
+            this.lblstudent.AutoSize = true;
+            this.lblstudent.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstudent.Location = new System.Drawing.Point(9, 11);
+            this.lblstudent.Name = "lblstudent";
+            this.lblstudent.Size = new System.Drawing.Size(0, 27);
+            this.lblstudent.TabIndex = 0;
+            // 
+            // lblIssued
+            // 
+            this.lblIssued.AutoSize = true;
+            this.lblIssued.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssued.Location = new System.Drawing.Point(9, 11);
+            this.lblIssued.Name = "lblIssued";
+            this.lblIssued.Size = new System.Drawing.Size(0, 27);
+            this.lblIssued.TabIndex = 0;
+            // 
+            // lblCopies
+            // 
+            this.lblCopies.AutoSize = true;
+            this.lblCopies.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCopies.Location = new System.Drawing.Point(9, 11);
+            this.lblCopies.Name = "lblCopies";
+            this.lblCopies.Size = new System.Drawing.Size(0, 27);
+            this.lblCopies.TabIndex = 0;
+            // 
             // lblNoOfBook
             // 
             this.lblNoOfBook.AutoSize = true;
             this.lblNoOfBook.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoOfBook.Location = new System.Drawing.Point(9, 11);
             this.lblNoOfBook.Name = "lblNoOfBook";
-            this.lblNoOfBook.Size = new System.Drawing.Size(24, 27);
+            this.lblNoOfBook.Size = new System.Drawing.Size(0, 27);
             this.lblNoOfBook.TabIndex = 0;
-            this.lblNoOfBook.Text = "0";
             this.lblNoOfBook.TextChanged += new System.EventHandler(this.lblNoOfBook_TextChanged);
             // 
             // frm_MainDashboard
@@ -876,6 +867,7 @@
             this.Name = "frm_MainDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Dashboard";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
@@ -927,7 +919,6 @@
         private System.Windows.Forms.Button btnMaintenance;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblNoOfBook;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
@@ -939,22 +930,17 @@
         private System.Windows.Forms.Label lbloverdue;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblreturned;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblfaculty;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label lblIssued;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblstudent;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -968,6 +954,12 @@
         private System.Windows.Forms.Button btnBorrowers;
         private System.Windows.Forms.Button btnUserAccount;
         public System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label lblCopies;
+        private System.Windows.Forms.Label lblunreturned;
+        private System.Windows.Forms.Label lblfaculty;
+        private System.Windows.Forms.Label lblIssued;
+        private System.Windows.Forms.Label lblstudent;
+        private System.Windows.Forms.Label lblNoOfBook;
     }
 }
 

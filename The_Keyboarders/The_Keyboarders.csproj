@@ -34,6 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -171,6 +180,12 @@
     <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.22\lib\net452\Zstandard.Net.dll</HintPath>
     </Reference>
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alertbox\frm_Alertbox.cs">
@@ -195,6 +210,18 @@
     </Compile>
     <Compile Include="Forms\frm_Books.Designer.cs">
       <DependentUpon>frm_Books.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_LookUpBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_LookUpBook.Designer.cs">
+      <DependentUpon>frm_LookUpBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_LookUpBorrower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_LookUpBorrower.Designer.cs">
+      <DependentUpon>frm_LookUpBorrower.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frm_MainDashboard.cs">
       <SubType>Form</SubType>
@@ -262,17 +289,17 @@
     <Compile Include="Forms\frm_addLibrarianstaff.Designer.cs">
       <DependentUpon>frm_addLibrarianstaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_ScanQR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_ScanQR.Designer.cs">
+      <DependentUpon>frm_ScanQR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frm_verifyPassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frm_verifyPassword.Designer.cs">
       <DependentUpon>frm_verifyPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm_Verify_User_Details.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm_Verify_User_Details.Designer.cs">
-      <DependentUpon>frm_Verify_User_Details.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -287,6 +314,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Books.resx">
       <DependentUpon>frm_Books.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_LookUpBook.resx">
+      <DependentUpon>frm_LookUpBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_LookUpBorrower.resx">
+      <DependentUpon>frm_LookUpBorrower.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_MainDashboard.resx">
       <DependentUpon>frm_MainDashboard.cs</DependentUpon>
@@ -318,11 +351,11 @@
     <EmbeddedResource Include="Forms\frm_addLibrarianstaff.resx">
       <DependentUpon>frm_addLibrarianstaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_ScanQR.resx">
+      <DependentUpon>frm_ScanQR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_verifyPassword.resx">
       <DependentUpon>frm_verifyPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_Verify_User_Details.resx">
-      <DependentUpon>frm_Verify_User_Details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -377,6 +410,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,8 @@ namespace The_Keyboarders.Forms
         Class.Alerts ab = new Class.Alerts();
         MySqlDataReader dr;
         frm_MainDashboard dash;
+        public string _callno;
+        public string _isbn;
         public frm_Books(frm_MainDashboard ds)
         {
             con = new MySqlConnection(db.mycon());
@@ -26,21 +29,40 @@ namespace The_Keyboarders.Forms
             InitializeComponent();
             LoadBook();
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        /*public void CountBook()
+        {
+            con.Open();
+            cmd = new MySqlCommand("select count(isbn) from tblbook where call", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                booksGridView.Rows.Add(i, dr.GetValue(0), dr.GetValue(1), dr.GetValue(2), dr.GetValue(3), dr.GetValue(4), dr.GetValue(5), dr.GetValue(6), dr.GetValue(7), dr["qty"].ToString());
+
+            }
+            dr.Close();
+            con.Close();
+        }*/
         public void LoadBook()
         {
             int i = 0;
             booksGridView.Rows.Clear();
             con.Open();
-            cmd = new MySqlCommand("select accession_no, call_no, title, author,  year_published,isbn,subject,publisher, qty, qrcode, book_image from tblbook where call_no like '%" + tbox_search.Text + "%' or title like '%" + tbox_search.Text + "%' or author like '%" + tbox_search.Text + "%' or publisher like '%" + tbox_search.Text + "%'", con);
+            cmd = new MySqlCommand("select accession_no, call_no, title, author,  year_published,isbn,subject,publisher, qrcode, book_image, count(*) as qty from tblbook where call_no like '%" + tbox_search.Text + "%' or title like '%" + tbox_search.Text + "%' or author like '%" + tbox_search.Text + "%' or publisher like '%" + tbox_search.Text + "%' group by call_no", con);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                booksGridView.Rows.Add(i, dr.GetValue(0), dr.GetValue(1), dr.GetValue(2), dr.GetValue(3), dr.GetValue(4), dr.GetValue(5), dr.GetValue(6), dr.GetValue(7), dr.GetValue(8));
+                booksGridView.Rows.Add(i, dr.GetValue(0), dr.GetValue(1), dr.GetValue(2), dr.GetValue(3), dr.GetValue(4), dr.GetValue(5), dr.GetValue(6), dr.GetValue(7), dr["qty"].ToString());
 
             }
             dr.Close();
             con.Close();
+           
+
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -52,6 +74,18 @@ namespace The_Keyboarders.Forms
         {
             dash.CountBooks();
             this.Dispose();
+        }
+
+        private void toppanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void booksGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            _callno = booksGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            _isbn = booksGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
         }
     }
 }

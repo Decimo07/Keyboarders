@@ -21,10 +21,19 @@ namespace The_Keyboarders
         dbconnection db = new dbconnection();
         Alerts ab = new Alerts();
         MySqlDataReader dr;
-        
-        public frm_BookAcquired()
+        frm_MainDashboard frm;
+        public string _yearpub;
+        public string _notes;
+        public string _subject;
+        public string _series;
+        public string _price;
+        public string _publisher;
+        public string _category;
+        public byte[] qrcd;
+        public byte[] imgbook;
+        public frm_BookAcquired(frm_MainDashboard forms)
         {
-            
+            frm = forms;
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
             LoadBook();
@@ -38,12 +47,12 @@ namespace The_Keyboarders
             int i = 0;
             booksGridView.Rows.Clear();
             con.Open();
-            cmd = new MySqlCommand("select accession_no, call_no, title, author,  isbn, qrcode, book_image, qty from tblbook where call_no like '%"+tbox_search.Text+ "%' or title like '%"+tbox_search.Text+ "%' or author like '%"+tbox_search.Text+ "%' or publisher like '%"+tbox_search.Text+"%'", con);
+            cmd = new MySqlCommand("select accession_no, call_no, title, author,year_published, isbn, notes, subject, series, price, publisher, cid, qrcode, book_image, count(*) as qty from tblbook where call_no like '%"+tbox_search.Text+ "%' or title like '%"+tbox_search.Text+ "%' or author like '%"+tbox_search.Text+ "%' or publisher like '%"+tbox_search.Text+"%' group by call_no", con);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                booksGridView.Rows.Add(i,dr.GetValue(0), dr.GetValue(1), dr.GetValue(2), dr.GetValue(3), dr.GetValue(4), dr.GetValue(5), dr.GetValue(6), dr.GetValue(7));
+                booksGridView.Rows.Add(i,dr.GetValue(0), dr.GetValue(1), dr.GetValue(2), dr.GetValue(3), dr.GetValue(4), dr.GetValue(5), dr.GetValue(6), dr.GetValue(7), dr.GetValue(8), dr.GetValue(9), dr.GetValue(10), dr.GetValue(11), dr.GetValue(12), dr.GetValue(13),dr["qty"].ToString());
 
             }
             dr.Close();
@@ -75,10 +84,16 @@ namespace The_Keyboarders
                 tboxcallno.Text = row.Cells[2].Value.ToString();
                 tboxtitle.Text = row.Cells[3].Value.ToString();
                 tboxauthor.Text = row.Cells[4].Value.ToString();
-                tboxISBN.Text = row.Cells[5].Value.ToString();
-                byte[] qrcd = (byte[])row.Cells[6].Value;
-                byte[] imgbook = (byte[])row.Cells[7].Value;
-                tboxCopies.Text = row.Cells[8].Value.ToString();
+                tboxISBN.Text = row.Cells[6].Value.ToString();
+                qrcd = (byte[])row.Cells[13].Value;
+                imgbook = (byte[])row.Cells[14].Value;
+                _yearpub = row.Cells[5].Value.ToString();
+                _notes = row.Cells[7].Value.ToString();
+                _subject = row.Cells[8].Value.ToString();
+                _series = row.Cells[9].Value.ToString();
+                _price = row.Cells[10].Value.ToString();
+                _publisher = row.Cells[11].Value.ToString();
+                _category = row.Cells[12].Value.ToString();
 
                 MemoryStream ms = new MemoryStream(qrcd);
                 qrcode.Image = Image.FromStream(ms);
@@ -118,9 +133,22 @@ namespace The_Keyboarders
         private void btnSave_Click(object sender, EventArgs e)
         {
             con.Open();
-            cmd = new MySqlCommand("update tblbook set qty = @qty where call_no = @callNo", con);
-            cmd.Parameters.AddWithValue("@callNo", tboxcallno.Text);
-            cmd.Parameters.AddWithValue("@qty", tboxCopies.Text);
+            cmd = new MySqlCommand("insertBooks", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("CALLNO", tboxcallno.Text);
+            cmd.Parameters.AddWithValue("TITLE", tboxtitle.Text);
+            cmd.Parameters.AddWithValue("AUTHOR", tboxauthor.Text);
+            cmd.Parameters.AddWithValue("YEARPUB", _yearpub);
+            cmd.Parameters.AddWithValue("ISBN", tboxISBN.Text);
+            cmd.Parameters.AddWithValue("NOTES", _notes);
+            cmd.Parameters.AddWithValue("SUBJECT", _subject);
+            cmd.Parameters.AddWithValue("SERIES", _series);
+            cmd.Parameters.AddWithValue("PRICE", _price);
+            cmd.Parameters.AddWithValue("PUBLISHER", _publisher);
+            cmd.Parameters.AddWithValue("CATEGORY", _category);
+            cmd.Parameters.AddWithValue("QRCODE", qrcd);
+            cmd.Parameters.AddWithValue("BOOKIMAGE", imgbook);
+            cmd.Parameters.AddWithValue("QTY", tboxCopies.Value);
 
             cmd.ExecuteNonQuery();
             if(MessageBox.Show("are you sure you want to update the no. of copies of "+ tboxtitle.Text + " to "+ tboxCopies.Text, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -135,6 +163,7 @@ namespace The_Keyboarders
                     ab.AlertBoxs(Color.LightGreen, Color.SeaGreen, "Success", "Added No. of Copies!", Properties.Resources.check);
                     con.Close();
                     LoadBook();
+                    
                     btnSave.Visible = false;
                     tboxCopies.Enabled = false;
                     btnClose.Visible = false;
