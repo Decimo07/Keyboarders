@@ -34,6 +34,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_LookUpBook));
             this.panel1 = new System.Windows.Forms.Panel();
             this.booksGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbox_search = new MetroFramework.Controls.MetroTextBox();
+            this.toppanel = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
+            this.ellipseControlArtan2 = new The_Keyboarders.Class.EllipseControlArtan();
             this.book_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accessionNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Call_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,14 +49,7 @@
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.check = new System.Windows.Forms.DataGridViewImageColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbox_search = new MetroFramework.Controls.MetroTextBox();
-            this.toppanel = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
-            this.ellipseControlArtan2 = new The_Keyboarders.Class.EllipseControlArtan();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -95,7 +94,6 @@
             this.isbn,
             this.subject,
             this.publisher,
-            this.qty,
             this.check});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -123,93 +121,6 @@
             this.booksGridView.Size = new System.Drawing.Size(988, 438);
             this.booksGridView.TabIndex = 112;
             this.booksGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksGridView_CellContentClick);
-            // 
-            // book_id
-            // 
-            this.book_id.HeaderText = "";
-            this.book_id.Name = "book_id";
-            this.book_id.ReadOnly = true;
-            this.book_id.Visible = false;
-            // 
-            // accessionNum
-            // 
-            this.accessionNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.accessionNum.HeaderText = "#";
-            this.accessionNum.Name = "accessionNum";
-            this.accessionNum.ReadOnly = true;
-            this.accessionNum.Width = 41;
-            // 
-            // Call_No
-            // 
-            this.Call_No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Call_No.HeaderText = "Call No";
-            this.Call_No.Name = "Call_No";
-            this.Call_No.ReadOnly = true;
-            this.Call_No.Width = 71;
-            // 
-            // title
-            // 
-            this.title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.title.HeaderText = "Title";
-            this.title.Name = "title";
-            this.title.ReadOnly = true;
-            // 
-            // column1
-            // 
-            this.column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.column1.HeaderText = "Author";
-            this.column1.Name = "column1";
-            this.column1.ReadOnly = true;
-            this.column1.Width = 68;
-            // 
-            // yearpub
-            // 
-            this.yearpub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.yearpub.HeaderText = "Year Pub.";
-            this.yearpub.Name = "yearpub";
-            this.yearpub.ReadOnly = true;
-            this.yearpub.Width = 81;
-            // 
-            // isbn
-            // 
-            this.isbn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.isbn.HeaderText = "ISBN";
-            this.isbn.Name = "isbn";
-            this.isbn.ReadOnly = true;
-            this.isbn.Width = 56;
-            // 
-            // subject
-            // 
-            this.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.subject.HeaderText = "Subject";
-            this.subject.Name = "subject";
-            this.subject.ReadOnly = true;
-            this.subject.Width = 73;
-            // 
-            // publisher
-            // 
-            this.publisher.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.publisher.HeaderText = "Publisher";
-            this.publisher.Name = "publisher";
-            this.publisher.ReadOnly = true;
-            this.publisher.Width = 82;
-            // 
-            // qty
-            // 
-            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.HeaderText = "Copies";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Width = 70;
-            // 
-            // check
-            // 
-            this.check.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.check.HeaderText = "";
-            this.check.Image = ((System.Drawing.Image)(resources.GetObject("check.Image")));
-            this.check.Name = "check";
-            this.check.ReadOnly = true;
-            this.check.Width = 5;
             // 
             // groupBox2
             // 
@@ -300,6 +211,85 @@
             this.ellipseControlArtan2.CornerRadius = 20;
             this.ellipseControlArtan2.TargetControl = this.panel1;
             // 
+            // book_id
+            // 
+            this.book_id.HeaderText = "";
+            this.book_id.Name = "book_id";
+            this.book_id.ReadOnly = true;
+            this.book_id.Visible = false;
+            // 
+            // accessionNum
+            // 
+            this.accessionNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.accessionNum.HeaderText = "Acquisition #";
+            this.accessionNum.Name = "accessionNum";
+            this.accessionNum.ReadOnly = true;
+            this.accessionNum.Width = 105;
+            // 
+            // Call_No
+            // 
+            this.Call_No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Call_No.HeaderText = "Call No";
+            this.Call_No.Name = "Call_No";
+            this.Call_No.ReadOnly = true;
+            this.Call_No.Width = 71;
+            // 
+            // title
+            // 
+            this.title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.title.HeaderText = "Title";
+            this.title.Name = "title";
+            this.title.ReadOnly = true;
+            // 
+            // column1
+            // 
+            this.column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.column1.HeaderText = "Author";
+            this.column1.Name = "column1";
+            this.column1.ReadOnly = true;
+            this.column1.Width = 68;
+            // 
+            // yearpub
+            // 
+            this.yearpub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.yearpub.HeaderText = "Year Pub.";
+            this.yearpub.Name = "yearpub";
+            this.yearpub.ReadOnly = true;
+            this.yearpub.Width = 81;
+            // 
+            // isbn
+            // 
+            this.isbn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.isbn.HeaderText = "ISBN";
+            this.isbn.Name = "isbn";
+            this.isbn.ReadOnly = true;
+            this.isbn.Width = 56;
+            // 
+            // subject
+            // 
+            this.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.subject.HeaderText = "Subject";
+            this.subject.Name = "subject";
+            this.subject.ReadOnly = true;
+            this.subject.Width = 73;
+            // 
+            // publisher
+            // 
+            this.publisher.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.publisher.HeaderText = "Publisher";
+            this.publisher.Name = "publisher";
+            this.publisher.ReadOnly = true;
+            this.publisher.Width = 82;
+            // 
+            // check
+            // 
+            this.check.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.check.HeaderText = "";
+            this.check.Image = ((System.Drawing.Image)(resources.GetObject("check.Image")));
+            this.check.Name = "check";
+            this.check.ReadOnly = true;
+            this.check.Width = 5;
+            // 
             // frm_LookUpBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,7 +330,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subject;
         private System.Windows.Forms.DataGridViewTextBoxColumn publisher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewImageColumn check;
     }
 }

@@ -92,6 +92,10 @@
             this.penalty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuedby = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearpub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.extend = new System.Windows.Forms.DataGridViewImageColumn();
             this.returnbook = new System.Windows.Forms.DataGridViewImageColumn();
             this.mainpanel.SuspendLayout();
@@ -364,12 +368,12 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(31, 70);
+            this.label8.Location = new System.Drawing.Point(27, 69);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 19);
+            this.label8.Size = new System.Drawing.Size(87, 19);
             this.label8.TabIndex = 40;
-            this.label8.Text = "Accession # :";
+            this.label8.Text = "Acquisition # :";
             // 
             // groupBox1
             // 
@@ -765,6 +769,10 @@
             this.penalty,
             this.issuedby,
             this.status,
+            this.yearpub,
+            this.isbn,
+            this.subject,
+            this.publisher,
             this.extend,
             this.returnbook});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -812,10 +820,10 @@
             // transno
             // 
             this.transno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.transno.HeaderText = "#";
+            this.transno.HeaderText = "Transaction #";
             this.transno.Name = "transno";
             this.transno.ReadOnly = true;
-            this.transno.Width = 41;
+            this.transno.Width = 109;
             // 
             // accession_no
             // 
@@ -886,6 +894,34 @@
             this.status.Name = "status";
             this.status.ReadOnly = true;
             // 
+            // yearpub
+            // 
+            this.yearpub.HeaderText = "";
+            this.yearpub.Name = "yearpub";
+            this.yearpub.ReadOnly = true;
+            this.yearpub.Visible = false;
+            // 
+            // isbn
+            // 
+            this.isbn.HeaderText = "";
+            this.isbn.Name = "isbn";
+            this.isbn.ReadOnly = true;
+            this.isbn.Visible = false;
+            // 
+            // subject
+            // 
+            this.subject.HeaderText = "";
+            this.subject.Name = "subject";
+            this.subject.ReadOnly = true;
+            this.subject.Visible = false;
+            // 
+            // publisher
+            // 
+            this.publisher.HeaderText = "";
+            this.publisher.Name = "publisher";
+            this.publisher.ReadOnly = true;
+            this.publisher.Visible = false;
+            // 
             // extend
             // 
             this.extend.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -938,7 +974,6 @@
 
         #endregion
         private System.Windows.Forms.Panel mainpanel;
-        private System.Windows.Forms.Button btnborrow;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
@@ -986,6 +1021,7 @@
         public System.Windows.Forms.Label lblPenalty;
         public System.Windows.Forms.Label lbldaysallowed;
         public System.Windows.Forms.Label lblMaxAllowed;
+        public System.Windows.Forms.Button btnborrow;
         private System.Windows.Forms.DataGridViewTextBoxColumn book_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn transno;
         private System.Windows.Forms.DataGridViewTextBoxColumn accession_no;
@@ -997,6 +1033,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn penalty;
         private System.Windows.Forms.DataGridViewTextBoxColumn issuedby;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearpub;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publisher;
         private System.Windows.Forms.DataGridViewImageColumn extend;
         private System.Windows.Forms.DataGridViewImageColumn returnbook;
     }

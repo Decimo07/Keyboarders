@@ -22,14 +22,25 @@ namespace The_Keyboarders
         public string user;
         public string _status;
         public string _transno;
+        public string _yearpub;
+        public string _isbn;
+        public string _subject;
+        public string _publisher;
+        public string _callno;
+        public string _title;
+        public string _author;
+        public string _acqno, btitle, bauthor, bisbn;
+
         frm_MainDashboard frms;
-       
+        public string buttons = "borrow";
+        public bool btnborrowclicked { get; private set; } = false;
+        public bool bookDG { get; private set; } = false;
+        public string _trans_no;
         public frm_Issued_Return(frm_MainDashboard form)
         {
             frms = form;
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
-            
             user = frms.lblUser.Text;
             un = frms.uname;
         }
@@ -82,45 +93,66 @@ namespace The_Keyboarders
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 }
+      
         public void LoadIssuedBook()
         {
+            
             int i = 0;
             booksGridView.Rows.Clear();
             con.Open();
-            cmd = new MySqlCommand("select transno, accession_no, call_no, title, author, date_borrowed, due_date, penalty, issuedby, status from tblIssuedReturn where borrower_id = @borrower and status = 'unreturned'", con);
+            cmd = new MySqlCommand("select p.transno, p.acquisition_no, p.call_no, p.title, p.author, p.date_borrowed, p.due_date, p.penalty, p.issuedby, p.status, c.year_published, c.isbn, c.subject, c.publisher from tblIssuedReturn as p inner join tblbook as c on p.call_no = c.call_no where p.borrower_id = @borrower", con);
             cmd.Parameters.AddWithValue("@borrower", tboxBorrower.Text);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                booksGridView.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
+            
+                booksGridView.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString(), dr[11].ToString(), dr[12].ToString(), dr[13].ToString());
+                
 
             }
             dr.Close();
             con.Close();
+
         }
         private void frm_BookList_Load(object sender, EventArgs e)
         {
             LoadIssuedBook();
-            
         }
 
         private void tboxaccession_TextChanged(object sender, EventArgs e)
         {
             UpdateState();
+            bool datafound = false;
+            
             con.Open();
-            cmd = new MySqlCommand("select accession_no, title, author, isbn from tblbook where call_no = @call_no", con);
+            cmd = new MySqlCommand("select acquisition_no, book_title, book_author, isbn_no from tblbookacquired where call_no = @call_no", con);
             cmd.Parameters.AddWithValue("@call_no", tboxcallno.Text);
             dr = cmd.ExecuteReader();
-            while (dr.Read())
+            dr.Read();
+            if (dr.HasRows)
             {
-                tboxaccessionno.Text = dr.GetValue(0).ToString();
-                tboxtitle.Text = dr.GetValue(1).ToString();
-                tboxauthor.Text = dr.GetValue(2).ToString();
-                tboxisbn.Text = dr.GetValue(3).ToString();
+                datafound = true;
+                _acqno = dr.GetValue(0).ToString();
+                btitle = dr.GetValue(1).ToString();
+                bauthor = dr.GetValue(2).ToString();
+                bisbn = dr.GetValue(3).ToString();
             }
             dr.Close();
             con.Close();
+            if(datafound == true)
+            {
+                tboxaccessionno.Text = _acqno;
+                tboxtitle.Text = btitle;
+                tboxauthor.Text = bauthor;
+                tboxisbn.Text = bisbn;
+                
+            }
+            else
+            {
+                ab.AlertBoxs(Color.White, Color.DarkRed, "Error", "No more copy for this book", Properties.Resources.cross); ab.AlertBoxs(Color.White, Color.DarkRed, "Error", "No more copy for this book", Properties.Resources.cross);
+
+            }
         }
         public void getCredit()
         {
@@ -137,12 +169,14 @@ namespace The_Keyboarders
             dr.Close();
             con.Close();
         }
-        private void btnborrow_Click(object sender, EventArgs e)
+        public void btnborrow_Click(object sender, EventArgs e)
         {
             
             GetTransno();
             try
             {
+                
+                
                 dateborrowed = DateTime.Now;
                 if (tboxType.Text == "Faculty")
                 {
@@ -154,12 +188,13 @@ namespace The_Keyboarders
                     due = duedate.ToString("MM/dd/yyyy hh:mm:ss tt");
                 }
                 //display the transaction details
-                if (MessageBox.Show("Transaction #:   " + lbltransno.Text + Environment.NewLine + "Borrower ID:   " + tboxBorrower.Text + Environment.NewLine + "Name:   " + tboxfname.Text + Environment.NewLine + "Address:   " + tboxaddress.Text + Environment.NewLine + "Call No.:   " + tboxcallno.Text + Environment.NewLine + "Title:   " + tboxtitle.Text + Environment.NewLine + "Author:   " + tboxauthor.Text + Environment.NewLine + "Date Borrowed:   " + dateborrowed.ToString("MM/dd/yyyy hh:mm:ss tt") + Environment.NewLine + "Due Date:   " + due + Environment.NewLine + Environment.NewLine +
+                if (MessageBox.Show("Transaction #:   " + lbltransno.Text + Environment.NewLine + "Borrower ID:   " + tboxBorrower.Text + Environment.NewLine + "Name:   " + tboxfname.Text + Environment.NewLine + "Address:   " + tboxaddress.Text + Environment.NewLine + "Call No.:   " + tboxcallno.Text + Environment.NewLine + "Acquisition No.:   " + tboxaccessionno.Text + Environment.NewLine + "Title:   " + tboxtitle.Text + Environment.NewLine + "Author:   " + tboxauthor.Text + Environment.NewLine + "Date Borrowed:   " + dateborrowed.ToString("MM/dd/yyyy hh:mm:ss tt") + Environment.NewLine + "Due Date:   " + due + Environment.NewLine + Environment.NewLine +
                     "do you want approved this loan?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    btnborrowclicked = true;
                     Forms.frm_verifyPassword frm = new Forms.frm_verifyPassword(this, frms);
                     frm.ShowDialog();
-                   
+                    frm.btns = buttons;
                 }
             }catch(Exception ex) {
                 con.Close();
@@ -247,23 +282,21 @@ namespace The_Keyboarders
 
         private void booksGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            _trans_no = booksGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            _callno = booksGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            _title = booksGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            _author = booksGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+            _yearpub = booksGridView.Rows[e.RowIndex].Cells[11].Value.ToString();
+            _isbn = booksGridView.Rows[e.RowIndex].Cells[12].Value.ToString();
+            _subject = booksGridView.Rows[e.RowIndex].Cells[13].Value.ToString();
+            _publisher = booksGridView.Rows[e.RowIndex].Cells[14].Value.ToString();
             string colname = booksGridView.Columns[e.ColumnIndex].Name;
             if(colname == "returnbook")
             {
                 if(MessageBox.Show("Mark this transaction as returned?","Confirmation",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    con.Open();
-                    cmd = new MySqlCommand("update tblissuedreturn set status = @status, date_returned = @datereturned where transno = @transno", con);
-                    cmd.Parameters.AddWithValue("@status", "Returned");
-                    cmd.Parameters.AddWithValue("@transno", booksGridView.Rows[e.RowIndex].Cells[1].Value.ToString());
-                    cmd.Parameters.AddWithValue("@datereturned", DateTime.Now.ToString("MM/dd/yyyy hh: mm:ss tt"));
-                    cmd.ExecuteNonQuery();
-                    ab.AlertBoxs(Color.White, Color.SeaGreen, "Message", "This book has successfully returned", Properties.Resources.check);
-                    con.Close();
-                    frms.returned();
-                    frms.Unreturned();
-                    LoadIssuedBook();
+                    frm_verifyPasswordReturn frm = new frm_verifyPasswordReturn(this, frms);
+                    frm.ShowDialog();
                 }
                 
             }

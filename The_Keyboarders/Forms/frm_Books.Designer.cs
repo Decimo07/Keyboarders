@@ -41,7 +41,6 @@
             this.toppanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.book_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accessionNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Call_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,7 +95,6 @@
             this.booksGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.booksGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.book_id,
-            this.accessionNum,
             this.Call_No,
             this.title,
             this.column1,
@@ -231,19 +229,11 @@
             // 
             // book_id
             // 
-            this.book_id.HeaderText = "";
+            this.book_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.book_id.HeaderText = "#";
             this.book_id.Name = "book_id";
             this.book_id.ReadOnly = true;
-            this.book_id.Visible = false;
-            // 
-            // accessionNum
-            // 
-            this.accessionNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.accessionNum.HeaderText = "#";
-            this.accessionNum.Name = "accessionNum";
-            this.accessionNum.ReadOnly = true;
-            this.accessionNum.Visible = false;
-            this.accessionNum.Width = 41;
+            this.book_id.Width = 41;
             // 
             // Call_No
             // 
@@ -371,8 +361,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroTextBox tbox_search;
         private System.Windows.Forms.Button btnAdd;
+        public System.Windows.Forms.DataGridView booksGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn book_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accessionNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Call_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1;
@@ -385,6 +375,5 @@
         private System.Windows.Forms.DataGridViewImageColumn book_image;
         private System.Windows.Forms.DataGridViewImageColumn view;
         private System.Windows.Forms.DataGridViewImageColumn edit;
-        public System.Windows.Forms.DataGridView booksGridView;
     }
 }

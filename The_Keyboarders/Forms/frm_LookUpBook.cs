@@ -43,7 +43,7 @@ namespace The_Keyboarders.Forms
             int i = 0;
             booksGridView.Rows.Clear();
             con.Open();
-            cmd = new MySqlCommand("select accession_no, call_no, title, author,  year_published,isbn,subject,publisher from tblbook where call_no like '%" + tbox_search.Text + "%' or title like '%" + tbox_search.Text + "%' or author like '%" + tbox_search.Text + "%' or publisher like '%" + tbox_search.Text + "%'", con);
+            cmd = new MySqlCommand("select acquisition_no, call_no, book_title, book_author,  yearpub,isbn_no,book_subject,book_publisher from tblbookAcquired where call_no like '%" + tbox_search.Text + "%' or book_title like '%" + tbox_search.Text + "%' or book_author like '%" + tbox_search.Text + "%' or book_publisher like '%" + tbox_search.Text + "%'", con);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -60,7 +60,8 @@ namespace The_Keyboarders.Forms
             if(colname == "check")
             {
                     frm.tboxcallno.Text = booksGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    this.Dispose();
+                frm.tboxaccessionno.Text = booksGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                this.Dispose();
             }
         }
 

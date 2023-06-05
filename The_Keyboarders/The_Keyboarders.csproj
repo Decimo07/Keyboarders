@@ -295,6 +295,12 @@
     <Compile Include="Forms\frm_ScanQR.Designer.cs">
       <DependentUpon>frm_ScanQR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_verifyPasswordReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_verifyPasswordReturn.Designer.cs">
+      <DependentUpon>frm_verifyPasswordReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frm_verifyPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_ScanQR.resx">
       <DependentUpon>frm_ScanQR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_verifyPasswordReturn.resx">
+      <DependentUpon>frm_verifyPasswordReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_verifyPassword.resx">
       <DependentUpon>frm_verifyPassword.cs</DependentUpon>

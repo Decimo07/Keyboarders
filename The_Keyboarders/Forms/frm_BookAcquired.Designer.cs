@@ -59,19 +59,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
             this.book_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accessionNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Call_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearpub = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.series = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qr_code = new System.Windows.Forms.DataGridViewImageColumn();
             this.book_image = new System.Windows.Forms.DataGridViewImageColumn();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
@@ -144,19 +138,13 @@
             this.booksGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.booksGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.book_id,
-            this.accessionNum,
             this.Call_No,
             this.title,
             this.column1,
             this.yearpub,
             this.isbn,
-            this.notes,
             this.subject,
-            this.series,
-            this.price,
             this.publisher,
-            this.cid,
-            this.qty,
             this.qr_code,
             this.book_image,
             this.edit});
@@ -488,13 +476,6 @@
             this.book_id.ReadOnly = true;
             this.book_id.Visible = false;
             // 
-            // accessionNum
-            // 
-            this.accessionNum.HeaderText = "";
-            this.accessionNum.Name = "accessionNum";
-            this.accessionNum.ReadOnly = true;
-            this.accessionNum.Visible = false;
-            // 
             // Call_No
             // 
             this.Call_No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -533,13 +514,6 @@
             this.isbn.ReadOnly = true;
             this.isbn.Width = 58;
             // 
-            // notes
-            // 
-            this.notes.HeaderText = "";
-            this.notes.Name = "notes";
-            this.notes.ReadOnly = true;
-            this.notes.Visible = false;
-            // 
             // subject
             // 
             this.subject.HeaderText = "";
@@ -547,40 +521,12 @@
             this.subject.ReadOnly = true;
             this.subject.Visible = false;
             // 
-            // series
-            // 
-            this.series.HeaderText = "";
-            this.series.Name = "series";
-            this.series.ReadOnly = true;
-            this.series.Visible = false;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Visible = false;
-            // 
             // publisher
             // 
             this.publisher.HeaderText = "";
             this.publisher.Name = "publisher";
             this.publisher.ReadOnly = true;
             this.publisher.Visible = false;
-            // 
-            // cid
-            // 
-            this.cid.HeaderText = "";
-            this.cid.Name = "cid";
-            this.cid.ReadOnly = true;
-            this.cid.Visible = false;
-            // 
-            // qty
-            // 
-            this.qty.HeaderText = "";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Visible = false;
             // 
             // qr_code
             // 
@@ -665,19 +611,13 @@
         private Class.EllipseControlArtan ellipseControlArtan1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridViewTextBoxColumn book_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accessionNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Call_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearpub;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notes;
         private System.Windows.Forms.DataGridViewTextBoxColumn subject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn series;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn publisher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewImageColumn qr_code;
         private System.Windows.Forms.DataGridViewImageColumn book_image;
         private System.Windows.Forms.DataGridViewImageColumn edit;

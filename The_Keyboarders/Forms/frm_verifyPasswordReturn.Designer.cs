@@ -1,6 +1,6 @@
 ﻿namespace The_Keyboarders.Forms
 {
-    partial class frm_verifyPassword
+    partial class frm_verifyPasswordReturn
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_verifyPassword));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_verifyPasswordReturn));
             this.ellipseControlArtan1 = new The_Keyboarders.Class.EllipseControlArtan();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -36,7 +36,6 @@
             this.tbox_password = new MetroFramework.Controls.MetroTextBox();
             this.toppanel = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -51,13 +50,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(407, 76);
+            this.groupBox1.Size = new System.Drawing.Size(407, 59);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Please Input User Password :";
@@ -150,33 +148,22 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(193, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 19);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "label1";
-            // 
-            // frm_verifyPassword
+            // frm_verifyPasswordReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(407, 94);
+            this.ClientSize = new System.Drawing.Size(407, 77);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toppanel);
             this.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frm_verifyPassword";
+            this.Name = "frm_verifyPasswordReturn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_verifyPassword";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.frm_verifyPassword_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.toppanel.ResumeLayout(false);
@@ -194,6 +181,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel toppanel;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label1;
     }
 }

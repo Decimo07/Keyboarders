@@ -19,6 +19,7 @@ namespace The_Keyboarders.Forms
     {
         private FilterInfoCollection CaptureDevice;
         private VideoCaptureDevice FinalFrame;
+        Alerts ab = new Alerts();
         frm_Issued_Return frm;
         public frm_ScanQR(frm_Issued_Return forms)
         {
@@ -72,29 +73,43 @@ namespace The_Keyboarders.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-                BarcodeReader reader = new BarcodeReader();
-                Result result = reader.Decode((Bitmap)pictureBoxCamera.Image);
-                try
-                {
-                    string decoded = result.ToString().Trim();
-                    timer1.Stop();
-                    if (decoded != "")
-                    {
-                        frm.tboxcallno.Text = decoded;
-                        this.Dispose();
-                    
-                    }
-                }
-                catch (Exception)
-                {
-
-                }
+                
            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            BarcodeReader reader = new BarcodeReader();
+            Result result = reader.Decode((Bitmap)pictureBoxCamera.Image);
+            try
+            {
+                if (result != null)
+                {
+                    if (result.BarcodeFormat == BarcodeFormat.QR_CODE)
+                    {
+                        string decoded = result.ToString().Trim();
+                        if (decoded != "")
+                        {
+                            frm.tboxcallno.Text = decoded;
+                            this.Dispose();
+
+                        }
+                    }
+                    else
+                    {
+                        ab.AlertBoxs(Color.White, Color.DarkRed, "Error", "The scanned image is not a Qr code", Properties.Resources.cross);
+                    }
+                }
+                else
+                {
+                    ab.AlertBoxs(Color.White, Color.DarkRed, "Error", " No Qr code scanned", Properties.Resources.cross);
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void comboBox1_TextChanged(object sender, EventArgs e)

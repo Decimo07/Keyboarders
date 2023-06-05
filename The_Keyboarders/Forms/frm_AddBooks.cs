@@ -25,9 +25,12 @@ namespace The_Keyboarders
         dbconnection db = new dbconnection();
         MySqlDataReader dr;
         Forms.frm_Books frm;
+        public string _callno;
         Alerts ab = new Alerts();
-        public frm_AddBooks(Forms.frm_Books form)
+        frm_MainDashboard frms;
+        public frm_AddBooks(Forms.frm_Books form, frm_MainDashboard forms)
         {
+            frms = forms;
             frm = form;
             con = new MySqlConnection(db.mycon());
             InitializeComponent();
@@ -62,7 +65,7 @@ namespace The_Keyboarders
                 if (MessageBox.Show("Are you sure you want to save this book?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //edited saving method
-
+                    
                     string category = "";
                     con.Open();
                     cmd = new MySqlCommand("select id from tblcategory where category like '" + cbox_category.Text + "'", con);
@@ -74,11 +77,31 @@ namespace The_Keyboarders
                     }
                     dr.Close();
                     con.Close();
-                    if (frm._callno == tboxcallno.Text)
-                      {
-                          ab.AlertBoxs(Color.White, Color.DarkRed, "Error", "Call # already exist", Properties.Resources.cross);
-                          con.Close();
-                      }
+                    con.Open();
+                    cmd = new MySqlCommand("select call_no from tblbook", con);
+                    dr = cmd.ExecuteReader();
+                    dr.Read();
+                    if (dr.HasRows)
+                    {
+                        _callno = dr[0].ToString();
+                    }
+                    dr.Close();
+                    con.Close();
+                    try
+                    {
+                        if (_callno == tboxcallno.Text)
+                        {
+                            ab.AlertBoxs(Color.White, Color.DarkRed, "Error", "Call # already exist", Properties.Resources.cross);
+                            con.Close();
+                            return;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        ab.AlertBoxs(Color.White, Color.DarkRed, "Error", "Call # already exist", Properties.Resources.cross);
+                        con.Close();
+                    }
+                    
                     if (String.IsNullOrEmpty(tboxcallno.Text) || String.IsNullOrEmpty(tboxtitle.Text) || String.IsNullOrEmpty(tboxauthor.Text)|| String.IsNullOrEmpty(tboxYpub.Text)||
                         String.IsNullOrEmpty(tboxISBN.Text)|| String.IsNullOrEmpty(tboxSubject.Text) || String.IsNullOrEmpty(tboxprice.Text) || String.IsNullOrEmpty(cbox_category.Text) || String.IsNullOrEmpty(tboxpublisher.Text))
                     {
@@ -117,6 +140,7 @@ namespace The_Keyboarders
                         con.Close();
                         ab.AlertBoxs(Color.White, Color.SeaGreen, "Success", "New book is added successfully!", Properties.Resources.check);
                         frm.LoadBook();
+                        frms.CountBooks();
                         tboxcallno.Clear();
                         tboxtitle.Clear();
                         tboxauthor.Clear();

@@ -33,13 +33,13 @@ namespace The_Keyboarders
             LoadUser();
             Unreturned();
             returned();
-            /*NoOfCopies();*/
+            NoOfCopies();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         public void NoOfCopies()
         {
             con.Open();
-            cmd = new MySqlCommand("Select sum(qty) from tblbook where qty > 0", con);
+            cmd = new MySqlCommand("Select count(*) from tblbookacquired", con);
             lblCopies.Text = cmd.ExecuteScalar().ToString();
             con.Close();
         }
@@ -88,8 +88,7 @@ namespace The_Keyboarders
         {
             
             con.Open();
-            cmd = new MySqlCommand("select count(*) from tblissuedReturn where due_date < @datenow", con);
-            cmd.Parameters.AddWithValue("@datenow", DateTime.Now.ToString());
+            cmd = new MySqlCommand("select count(*) from library_system.tblissuedreturn where Due_Date < NOW() and status = 'unreturned' and Due_Date != 'no limit'", con);
             lbloverdue.Text = cmd.ExecuteScalar().ToString();
             con.Close();
         }
